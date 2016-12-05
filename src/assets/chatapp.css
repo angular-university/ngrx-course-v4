@@ -18,7 +18,8 @@
 }
 
 .message-list, .thread-list {
-  border: 1px solid #ccf;
+  border: 1px solid rgba(26, 141, 246, 0.38);
+  border-radius: 4px;
   font-size: 16px;
   height: 400px;
   margin: 0;
@@ -63,20 +64,20 @@
 .thread-list-item.active,
 .thread-list:hover .thread-list-item.active,
 .thread-list:hover .thread-list-item.active:hover {
-  background-color: #efefff;
+  background-color: #e2e2e2;
   cursor: default;
 }
 
 .message-author-name,
 .thread-name {
-  color: #66c;
+  color: #1976d2;
   float: left;
   font-size: 13px;
   margin: 0;
 }
 
 .message-time, .thread-time {
-  color: #aad;
+  color: #1976d2;
   float: right;
   font-size: 12px;
 }
