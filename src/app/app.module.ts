@@ -3,12 +3,20 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
+import { ThreadSectionComponent } from './thread-section/thread-section.component';
+import { MessageSectionComponent } from './message-section/message-section.component';
+import { ThreadListComponent } from './thread-list/thread-list.component';
+import { MessageListComponent } from './message-list/message-list.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ThreadSectionComponent,
+    MessageSectionComponent,
+    ThreadListComponent,
+    MessageListComponent
   ],
   imports: [
     BrowserModule,
