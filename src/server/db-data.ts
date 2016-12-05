@@ -38,7 +38,11 @@ export const threads: Thread[] = [
         id: 2,
         participantIds: [ 1, 3 , 4, 5 ],
         messageIds: [6, 7, 8, 9, 10]
-
+    },
+    {
+        id: 3,
+        participantIds: [],
+        messageIds: []
     }
 ];
 
@@ -55,7 +59,7 @@ export const messages: Message[]  = [
         id: 2,
         threadId: 1,
         participantId: 2,
-        text: 'What, is it full AGAIN ??',
+        text: 'What, is it full AGAIN ?!',
         read: false
     },
     {
@@ -76,7 +80,7 @@ export const messages: Message[]  = [
         id: 5,
         threadId: 1,
         participantId: 1,
-        text: 'And when are you planning on hanging these paintings on the wall ?',
+        text: 'BTW when are you planning on hanging these paintings on the wall ?',
         read: false
     },
     {
@@ -112,6 +116,34 @@ export const messages: Message[]  = [
         threadId: 2,
         participantId: 1,
         text: 'Clean everything up NOW !!',
+        read: false
+    },
+    {
+        id: 11,
+        threadId: 3,
+        participantId: 2,
+        text: 'Hey Hugo, Want to go outside and play football with Dad ??',
+        read: false
+    },
+    {
+        id: 12,
+        threadId: 3,
+        participantId: 3,
+        text: 'No dad Im very busy, Im reading this book !',
+        read: false
+    },
+    {
+        id: 13,
+        threadId: 3,
+        participantId: 2,
+        text: 'What do you mean you\'re busy, you\'re only 5 ! Besides you can\'t read yet LOL ',
+        read: false
+    },
+    {
+        id: 14,
+        threadId: 3,
+        participantId: 3,
+        text: 'Sigh OK let\'s go to the park then, but just a little OK ?',
         read: false
     }
 ];
