@@ -37,7 +37,7 @@ export const threads: Thread[] = [
     {
         id: 2,
         participantIds: [ 1, 3 , 4, 5 ],
-        messageIds: []
+        messageIds: [6, 7, 8, 9, 10]
 
     }
 ];
@@ -94,21 +94,21 @@ export const messages: Message[]  = [
         read: false
     },
     {
-        id: 6,
+        id: 8,
         threadId: 2,
         participantId: 4,
         text: 'Not me, I was just doing some coloring Mom ',
         read: false
     },
     {
-        id: 7,
+        id: 9,
         threadId: 2,
         participantId: 5,
         text: 'ggaaaaaggaaaaaaaaaaaa maaaammmaaaaaa',
         read: false
     },
     {
-        id: 8,
+        id: 10,
         threadId: 2,
         participantId: 1,
         text: 'Clean everything up NOW !!',
