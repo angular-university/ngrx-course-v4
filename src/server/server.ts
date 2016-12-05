@@ -12,7 +12,6 @@ const low = require('lowdb');
 const db = low();
 
 
-
 db.defaults({ messages: [] })
     .value();
 
@@ -21,6 +20,8 @@ db.defaults({ messages: [] })
 _.times(100, () => {
 
     const message: Message = {
+        id: Math.random(),
+        threadId: 1,
         text: faker.lorem.sentences(),
         read: false
     };

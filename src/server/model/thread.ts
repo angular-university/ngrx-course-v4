@@ -1,6 +1,7 @@
 
 
-interface Thread {
+export interface Thread {
     id:number;
-    participants: number[];
+    participantIds: number[];
+    messageIds: number[];
 }
