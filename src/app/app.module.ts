@@ -4,15 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { MultiActorComponent } from './multi-actor/multi-actor.component';
+import { FormUndoComponent } from './form-undo/form-undo.component';
+import { MasterDetailComponent } from './master-detail/master-detail.component';
+import {RouterModule} from "@angular/router";
+import {routerConfig} from "../router.config";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MultiActorComponent,
+    FormUndoComponent,
+    MasterDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routerConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
