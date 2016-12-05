@@ -5,5 +5,7 @@ export interface Message  {
     threadId:number;
     participantId: number;
     text:string;
-    read:boolean;
 }
+
+
+

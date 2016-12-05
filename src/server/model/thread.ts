@@ -5,3 +5,5 @@ export interface Thread {
     participantIds: number[];
     messageIds: number[];
 }
+
+
