@@ -1,14 +1,30 @@
 
-
+import {threads, participants, messages} from "./db-data";
+import * as _ from 'lodash';
+import * as faker from 'faker';
 import {Message} from "../model/message";
-import {threads} from "./db-data";
+
+
+
+
 const low = require('lowdb');
 
 export const db = low();
 
 
-db.defaults({ threads: threads })
+
+db.defaults({ threads })
     .value();
+
+
+db.defaults({ participants })
+    .value();
+
+
+db.defaults({ messages })
+    .value();
+
+
 
 
 

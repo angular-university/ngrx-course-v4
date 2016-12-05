@@ -55,97 +55,114 @@ export const messages: Message[]  = [
         id: 1,
         threadId: 1,
         participantId: 1,
-        text: 'Did you take take out the trash today ?'
+        text: 'Did you take take out the trash today ?',
+        timestamp: new Date().getTime()
     },
     {
         id: 2,
         threadId: 1,
         participantId: 2,
-        text: 'What, is it full AGAIN ?!'
+        text: 'What, is it full AGAIN ?!',
+        timestamp: new Date().getTime()
+    },
     {
         id: 3,
         threadId: 1,
         participantId: 1,
-        text: 'Yes like every day ! Can you take it out now ? '
+        text: 'Yes like every day ! Can you take it out now ? ',
+        timestamp: new Date().getTime()
     },
     {
         id: 4,
         threadId: 1,
         participantId: 2,
-        text: 'OK, no problem'
+        text: 'OK, no problem',
+        timestamp: new Date().getTime()
     },
     {
         id: 5,
         threadId: 1,
         participantId: 1,
-        text: 'BTW when are you planning on hanging these paintings on the wall ?'
+        text: 'BTW when are you planning on hanging these paintings on the wall ?',
+        timestamp: new Date().getTime()
     },
     {
         id: 6,
         threadId: 2,
         participantId: 1,
-        text: 'Who made this mess ?? this living room is a disaster ! '
+        text: 'Who made this mess ? this living room is a disaster ',
+        timestamp: new Date().getTime()
     },
     {
         id: 7,
         threadId: 2,
         participantId: 3,
-        text: 'Not me, I was just playing basketball Mom'
+        text: 'Not me, I was just playing basketball Mom',
+        timestamp: new Date().getTime()
     },
     {
         id: 8,
         threadId: 2,
         participantId: 4,
-        text: 'Not me, I was just doing some coloring Mom '
+        text: 'Not me, I was just doing some coloring Mom ',
+        timestamp: new Date().getTime()
     },
     {
         id: 9,
         threadId: 2,
         participantId: 5,
-        text: 'ggaaaaaggaaaaaaaaaaaa maaaammmaaaaaa'
+        text: 'ggaaaaaggaaaaaaaaaaaa maaaammmaaaaaa',
+        timestamp: new Date().getTime()
     },
     {
         id: 10,
         threadId: 2,
         participantId: 1,
-        text: 'Clean everything up NOW ;-) !'
+        text: 'Clean everything up NOW ;-) !',
+        timestamp: new Date().getTime()
     },
     {
         id: 11,
         threadId: 3,
         participantId: 2,
-        text: 'Everyone come to the table, dinner is ready !'
+        text: 'Everyone come to the table, dinner is ready ',
+        timestamp: new Date().getTime()
     },
     {
         id: 12,
         threadId: 3,
         participantId: 3,
-        text: 'No dad Im watching this cartoon its not over yet !'
+        text: 'No dad Im watching this cartoon its not over yet ',
+        timestamp: new Date().getTime()
     },
     {
         id: 13,
         threadId: 3,
         participantId: 4,
-        text: 'No dad we want to keep watching TV too its my favorite show !'
+        text: 'No dad we want to keep watching TV too its my favorite show ',
+        timestamp: new Date().getTime()
     },
     {
         id: 14,
         threadId: 3,
         participantId: 5,
-        text: 'gaaaggggaaaaaaaaaa chiiippppssssss mhmaam mhaammmm'
+        text: 'gaaaggggaaaaaaaaaa mhmaam mhaammmm mmaaammaaa paaappppaaaaa',
+        timestamp: new Date().getTime()
     }
     ,
     {
         id: 15,
         threadId: 3,
         participantId: 1,
-        text: 'Maybe later, I\'m not hungry (as usual) ...'
+        text: 'Maybe later, I\'m not hungry ',
+        timestamp: new Date().getTime()
     },
     {
         id: 16,
         threadId: 2,
         participantId: 1,
-        text: 'What ?! I cooked dinner for nothing ?? Everybody comes to the table now, turn off the TV ! ;-)'
+        text: 'Put that on pause and come to the table, the dinner will be cold',
+        timestamp: new Date().getTime()
     }
 ];
 

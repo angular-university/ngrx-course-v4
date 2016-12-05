@@ -1,8 +1,5 @@
 
-import * as _ from 'lodash';
 
-import * as faker from 'faker';
-import {Message} from "./model/message";
 import * as express from "express";
 import {Application} from 'express';
 import {initApi} from "./api/api";
