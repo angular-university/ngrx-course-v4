@@ -1,9 +1,12 @@
 <div class="thread-section">
+
     <div class="thread-count">
-            <span>
-                <span>Unread threads: </span>
-                <span>2</span>
-            </span>
+        <span>
+            <span>Unread threads: </span>
+            <span>{{threads?.unreadThreadsCounter}}</span>
+        </span>
     </div>
-    <thread-list></thread-list>
+
+    <thread-list [threads]="threads?.threadSummaries"></thread-list>
+
 </div>

@@ -4,7 +4,7 @@
 
 
 export interface ThreadSummaryVM {
-    participantsList: string;
+    participantNames: string;
     timestamp:number;
     lastMessage: string;
 }

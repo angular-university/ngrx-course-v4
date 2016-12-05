@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ThreadsService} from "../services/threads.service";
+import {ThreadsVM} from "../../server/view-model/threads.vm";
+
+
 
 @Component({
   selector: 'thread-section',
@@ -9,7 +12,7 @@ import {ThreadsService} from "../services/threads.service";
 export class ThreadSectionComponent implements OnInit {
 
 
-  threads: ThreadVM[];
+  threads: ThreadsVM;
 
 
   constructor(private threadsService: ThreadsService) {
@@ -19,8 +22,9 @@ export class ThreadSectionComponent implements OnInit {
 
   ngOnInit() {
 
-      this.threadsService.loadAllThreads().subscribe(
-
+      this.threadsService.loadAllThreadViewModels().subscribe(
+          threads => this.threads = threads,
+          console.error
       );
 
   }
