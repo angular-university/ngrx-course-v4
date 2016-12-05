@@ -14,7 +14,6 @@ export function apiGetAllThreads(app: Application) {
 
         const threads: Thread[] = <any> _.values(dbThreads);
 
-
         const threadsVm: ThreadsVM = {
             unreadThreadsCounter: 2,
             threadSummaries: <any>threads
