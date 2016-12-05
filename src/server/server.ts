@@ -2,7 +2,7 @@
 import * as _ from 'lodash';
 
 import * as faker from 'faker';
-import {Message} from "./message";
+import {Message} from "./model/message";
 import * as express from "express";
 import {Application} from 'express';
 const bodyParser = require('body-parser');
@@ -10,6 +10,8 @@ const bodyParser = require('body-parser');
 const low = require('lowdb');
 
 const db = low();
+
+
 
 db.defaults({ messages: [] })
     .value();
@@ -34,6 +36,7 @@ const app: Application = express();
 app.use(bodyParser.json());
 
 
+
 app.route('/messages').get((req, res) => {
 
     const messages = db.get("messages").value();
@@ -41,6 +44,7 @@ app.route('/messages').get((req, res) => {
     res.status(200).json({payload:messages});
 
 });
+
 
 
 app.listen(8090, () => {
