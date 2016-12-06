@@ -13,7 +13,7 @@ export class MessageSectionComponent implements OnInit {
 
     participantId = 1; // to simplify the example,  we are always logged in with Alice
 
-    currentThread: ThreadDetailVM | null = null;
+    currentThread: ThreadDetailVM = null;
 
 
     constructor(private currentThreadService: CurrentThreadService, private threadsRestService: ThreadsRestService) {
@@ -41,7 +41,7 @@ export class MessageSectionComponent implements OnInit {
         if (this.currentThread) {
             this.threadsRestService.saveNewMessage(this.currentThread.id, this.participantId, message)
                 .subscribe(
-                    () => console.log('new message saved ...'),
+                    () => this.currentThreadService.selectThread(this.currentThread.id),
                     console.error
                 );
         }
