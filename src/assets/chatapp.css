@@ -40,7 +40,7 @@
 .message-thread-heading,
 .thread-count {
   height: 40px;
-  margin: 0;
+  margin: 10px 0;
 }
 
 .message-list-item, .thread-list-item {
