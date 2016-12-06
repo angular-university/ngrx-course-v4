@@ -2,8 +2,9 @@ import {Application} from 'express';
 import {Thread} from "../model/thread";
 import {ThreadsVM} from "../view-model/threads.vm";
 import * as _ from 'lodash';
-import {dbThreads} from "../db/db-data";
+import {dbThreads, dbParticipants, dbMessages} from "../db/db-data";
 import {ThreadSummaryVM} from "../view-model/thread-summary.vm";
+import {Message} from "../model/message";
 
 
 export function apiGetAllThreads(app: Application) {
@@ -26,11 +27,18 @@ export function apiGetAllThreads(app: Application) {
 
 function mapThreadToThreadSummary(thread: Thread): ThreadSummaryVM {
 
+    const messages: Message[] =  <any>_.values(dbMessages);
+
+    const messagesPerThread = _.chain(messages).filter(msg => msg.threadId == thread.id).orderBy(msg => msg.id).value();
+
+    const lastMessage: Message = _.last(messagesPerThread);
+
+    console.log(lastMessage);
 
     return {
-        participantNames: '',
-        timestamp: 0,
-        lastMessage: ""
+        participantNames: _.join(thread.participantIds.map(id => dbParticipants[id].name), ', '),
+        timestamp: lastMessage.timestamp,
+        lastMessage: lastMessage.text
     };
 
 

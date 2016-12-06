@@ -44,7 +44,7 @@ export const dbThreads: {[key:number]: Thread} = {
     },
     3: {
         id: 3,
-        participantIds: [],
+        participantIds: [1,2,3,4,5],
         messageIds: [11, 12 ,13 ,14]
     }
 };
@@ -64,14 +64,14 @@ export const dbMessages: {[key:number]: Message} = {
         id: 2,
         threadId: 1,
         participantId: 2,
-        text: 'What, is it full AGAIN ?!',
+        text: 'Is it full again ?!',
         timestamp: new Date().getTime()
     },
     3: {
         id: 3,
         threadId: 1,
         participantId: 1,
-        text: 'Yes like every day ! Can you take it out now ? ',
+        text: 'Yes like every day, Can you take it out now ? ',
         timestamp: new Date().getTime()
     },
     4: {
@@ -85,7 +85,7 @@ export const dbMessages: {[key:number]: Message} = {
         id: 5,
         threadId: 1,
         participantId: 1,
-        text: 'BTW when are you planning on hanging these paintings on the wall ?',
+        text: 'BTW when can you hang these paintings on the wall ?',
         timestamp: new Date().getTime()
     },
     6: {
