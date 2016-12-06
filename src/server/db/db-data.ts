@@ -64,14 +64,14 @@ export const dbMessages: {[key:number]: Message} = {
         id: 2,
         threadId: 1,
         participantId: 2,
-        text: 'Is it full again ?!',
+        text: 'Is it full again ?',
         timestamp: new Date().getTime()
     },
     3: {
         id: 3,
         threadId: 1,
         participantId: 1,
-        text: 'Yes like every day, Can you take it out now ? ',
+        text: 'Yes, can you take it out now ? ',
         timestamp: new Date().getTime()
     },
     4: {
@@ -81,32 +81,25 @@ export const dbMessages: {[key:number]: Message} = {
         text: 'OK, no problem',
         timestamp: new Date().getTime()
     },
-    5: {
-        id: 5,
-        threadId: 1,
-        participantId: 1,
-        text: 'BTW when can you hang these paintings on the wall ?',
-        timestamp: new Date().getTime()
-    },
     6: {
         id: 6,
         threadId: 2,
         participantId: 1,
-        text: 'Who made this mess ? this living room is a disaster ',
+        text: 'This living room is a disaster, clean this up kids ! ',
         timestamp: new Date().getTime()
     },
     7: {
         id: 7,
         threadId: 2,
         participantId: 3,
-        text: 'Not me, I was just playing basketball Mom',
+        text: 'Wasn\'t me Mom ! I was  playing basketball',
         timestamp: new Date().getTime()
     },
     8: {
         id: 8,
         threadId: 2,
         participantId: 4,
-        text: 'Not me, I was just doing some coloring Mom ',
+        text: 'Me neither Mom I was coloring a book',
         timestamp: new Date().getTime()
     },
     9: {
@@ -120,7 +113,7 @@ export const dbMessages: {[key:number]: Message} = {
         id: 10,
         threadId: 2,
         participantId: 1,
-        text: 'Clean everything up NOW ;-) !',
+        text: 'OK kids thats enough, tidy the living room now please !',
         timestamp: new Date().getTime()
     },
     11: {
@@ -160,9 +153,9 @@ export const dbMessages: {[key:number]: Message} = {
     },
     16: {
         id: 16,
-        threadId: 2,
+        threadId: 3,
         participantId: 1,
-        text: 'Put that on pause and come to the table, the dinner will be cold',
+        text: 'Let\'s go everyone, put that on pause and come to the table, the dinner will be cold',
         timestamp: new Date().getTime()
     }
 
