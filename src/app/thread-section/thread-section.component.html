@@ -7,6 +7,6 @@
         </span>
     </div>
 
-    <thread-list [threads]="threads?.threadSummaries"></thread-list>
+    <thread-list [threads]="threads?.threadSummaries" (threadSelected)="onThreadSelected($event)"></thread-list>
 
 </div>

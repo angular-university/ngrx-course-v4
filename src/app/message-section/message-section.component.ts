@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CurrentThreadService} from "../services/current-thread.service";
 
 @Component({
   selector: 'message-section',
@@ -7,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageSectionComponent implements OnInit {
 
-  constructor() { }
+
+
+
+
+  constructor(private currentThreadService: CurrentThreadService) {
+
+
+  }
+
+
 
   ngOnInit() {
 
   }
+
+
 
 }

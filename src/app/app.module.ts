@@ -7,7 +7,8 @@ import { ThreadSectionComponent } from './thread-section/thread-section.componen
 import { MessageSectionComponent } from './message-section/message-section.component';
 import { ThreadListComponent } from './thread-list/thread-list.component';
 import { MessageListComponent } from './message-list/message-list.component';
-import {ThreadsService} from "./services/threads.service";
+import {CurrentThreadService} from "./services/current-thread.service";
+import {ThreadsRestService} from "./services/threads-rest.service";
 
 
 
@@ -24,7 +25,7 @@ import {ThreadsService} from "./services/threads.service";
     FormsModule,
     HttpModule
   ],
-  providers: [ThreadsService],
+  providers: [ThreadsRestService, CurrentThreadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

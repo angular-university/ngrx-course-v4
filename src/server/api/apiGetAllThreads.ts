@@ -33,8 +33,6 @@ function mapThreadToThreadSummary(thread: Thread): ThreadSummaryVM {
 
     const lastMessage: Message = _.last(messagesPerThread);
 
-    console.log(lastMessage);
-
     return {
         participantNames: _.join(thread.participantIds.map(id => dbParticipants[id].name), ', '),
         timestamp: lastMessage.timestamp,
