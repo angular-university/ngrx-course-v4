@@ -1,10 +1,12 @@
 
 import {Application} from 'express';
 import {Thread} from "../model/thread";
-import {dbThreads, dbMessages} from "../db/db-data";
+import {dbThreads, dbMessages, dbParticipants} from "../db/db-data";
 import * as _ from 'lodash';
 import {ThreadDetailVM} from "../view-model/thread-detail.vm";
 import {buildParticipantNames} from "../model/buildParticipantNames";
+import {Message} from "../model/message";
+import {MessageVM} from "../view-model/message.vm";
 
 
 
@@ -19,13 +21,13 @@ export function apiGetThreadDetail(app: Application) {
 
         const thread = _.find(threads,thread => thread.id == threadId);
 
-        let messagesPerThread = _.filter(dbMessages, (message:any) => message.threadId == threadId);
+        let messagesPerThread: Message[] = _.filter(dbMessages, (message:any) => message.threadId == threadId);
 
         messagesPerThread = _.sortBy(messagesPerThread, message => message.id);
 
         const threadVM: ThreadDetailVM = {
             participantNames: buildParticipantNames(thread),
-            messages: messagesPerThread
+            messages: messagesPerThread.map(buildMessageVmFromMessage)
         };
 
         res.status(200).json({payload: threadVM});
@@ -34,3 +36,13 @@ export function apiGetThreadDetail(app: Application) {
 
 
 }
+
+
+function buildMessageVmFromMessage({participantId, timestamp, text}): MessageVM {
+    return {
+        participantName: dbParticipants[participantId].name,
+        timestamp,
+        text
+    }
+}
+

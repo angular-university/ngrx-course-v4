@@ -3,9 +3,7 @@
 
 
 export interface MessageVM  {
-    id:number;
-    threadId:number;
-    participantId: number;
+    participantName: string;
     text:string;
     timestamp:number;
 }
