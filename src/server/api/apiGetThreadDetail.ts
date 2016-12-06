@@ -38,8 +38,9 @@ export function apiGetThreadDetail(app: Application) {
 }
 
 
-function buildMessageVmFromMessage({participantId, timestamp, text}): MessageVM {
+function buildMessageVmFromMessage({id,participantId, timestamp, text}): MessageVM {
     return {
+        id,
         participantName: dbParticipants[participantId].name,
         timestamp,
         text

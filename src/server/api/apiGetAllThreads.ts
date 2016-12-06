@@ -35,6 +35,7 @@ function mapThreadToThreadSummary(thread: Thread): ThreadSummaryVM {
     const lastMessage: Message = _.last(messagesPerThread);
 
     return {
+        id: thread.id,
         participantNames: buildParticipantNames(thread),
         timestamp: lastMessage.timestamp,
         lastMessage: lastMessage.text

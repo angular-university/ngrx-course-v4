@@ -1,11 +1,7 @@
 <ul class="message-list">
-    <li class="message-list-item">
-        <h5 class="message-author-name">Bill</h5>
-        <div class="message-time">10:43:55 AM</div>
-        <div class="message-text">Hey Brian, are you going to be talking about functional stuff?</div>
-    </li>
-    <li class="message-list-item"><h5 class="message-author-name">Brian</h5>
-        <div class="message-time">10:44:05 AM</div>
-        <div class="message-text">At ForwardJS? Yeah, of course. See you there!</div>
+    <li class="message-list-item" *ngFor="let message of messages">
+        <h5 class="message-author-name">{{message.participantName}}</h5>
+        <div class="message-time">{{message.timestamp | date :'shortTime'}}</div>
+        <div class="message-text">{{message.text}}</div>
     </li>
 </ul>
