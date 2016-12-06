@@ -17,11 +17,15 @@ export function apiSaveNewMessage(app: Application) {
             id: messageIdCounter++,
             threadId: parseInt(payload.threadId),
             timestamp: new Date().getTime(),
-            text: payload.text,
+            text: payload.message,
             participantId: payload.participantId
         };
 
         dbMessages[message.id] = message;
+
+
+        console.log(dbMessages);
+
 
 
         res.status(200).send();

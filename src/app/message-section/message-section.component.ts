@@ -31,9 +31,12 @@ export class MessageSectionComponent implements OnInit {
     }
 
 
-    onNewMessage(message:string) {
+    onNewMessage(input:any) {
 
-        console.log("New message: ", message);
+        console.log("message emitted", input.value);
+
+        const message = input.value;
+        input.value = '';
 
         if (this.currentThread) {
             this.threadsRestService.saveNewMessage(this.currentThread.id, this.participantId, message)
