@@ -26,6 +26,7 @@ export function apiGetThreadDetail(app: Application) {
         messagesPerThread = _.sortBy(messagesPerThread, message => message.id);
 
         const threadVM: ThreadDetailVM = {
+            id: threadId,
             participantNames: buildParticipantNames(thread),
             messages: messagesPerThread.map(buildMessageVmFromMessage)
         };

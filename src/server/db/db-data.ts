@@ -92,14 +92,14 @@ export const dbMessages: {[key:number]: Message} = {
         id: 7,
         threadId: 2,
         participantId: 3,
-        text: 'Wasn\'t me Mom ! I was  playing basketball',
+        text: 'Wasn\'t me Mom ! ',
         timestamp: new Date().getTime()
     },
     8: {
         id: 8,
         threadId: 2,
         participantId: 4,
-        text: 'Me neither Mom I was coloring a book',
+        text: 'Me neither Mom ! ',
         timestamp: new Date().getTime()
     },
     9: {
@@ -113,7 +113,7 @@ export const dbMessages: {[key:number]: Message} = {
         id: 10,
         threadId: 2,
         participantId: 1,
-        text: 'OK kids thats enough, tidy the living room now please !',
+        text: 'OK kids thats enough, tidy up the living room now please !',
         timestamp: new Date().getTime()
     },
     11: {

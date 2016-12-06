@@ -5,6 +5,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictNullChecks": true,
+    "skipLibCheck": true,
     "lib": ["es6", "dom"],
     "mapRoot": "./",
     "module": "es6",
