@@ -11,7 +11,7 @@ import {ThreadDetailVM} from "../../server/view-model/thread-detail.vm";
 export class MessageSectionComponent implements OnInit {
 
 
-    currentThread$: Observable<ThreadDetailVM>;
+    currentThread: ThreadDetailVM | null = null;
 
 
     constructor(private currentThreadService: CurrentThreadService) {
@@ -22,7 +22,10 @@ export class MessageSectionComponent implements OnInit {
 
     ngOnInit() {
 
-        this.currentThread$ = this.currentThreadService.thread$;
+        this.currentThreadService.thread$.subscribe(
+            thread => this.currentThread = thread,
+            console.error
+        );
 
     }
 

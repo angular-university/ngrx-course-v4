@@ -12,7 +12,7 @@ export class CurrentThreadService {
 
     private threadSubject = new BehaviorSubject<ThreadDetailVM | null>(null);
 
-    thread$: Observable<ThreadDetailVM | null> = Observable.of(null);
+    thread$: Observable<ThreadDetailVM | null> = this.threadSubject.asObservable();
 
 
     constructor(private threadRestService: ThreadsRestService) {

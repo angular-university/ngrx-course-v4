@@ -1,5 +1,5 @@
 <div class="message-section">
-    <h3 class="message-thread-heading">{{currentThread$?.participantNames}}</h3>
-    <message-list [messages]="currentThread$?.messages | async"></message-list>
+    <h3 class="message-thread-heading">{{currentThread?.participantNames}}</h3>
+    <message-list [messages]="currentThread?.messages"></message-list>
     <textarea class="message-composer" name="message"></textarea>
 </div>
