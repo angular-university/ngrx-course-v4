@@ -22,6 +22,10 @@ export class CurrentThreadService {
 
     selectThread(threadId:number) {
         this.threadRestService.loadThreadDetail(threadId)
+            .subscribe(
+                thread => this.threadSubject.next(thread),
+                console.error
+            );
     }
 
 

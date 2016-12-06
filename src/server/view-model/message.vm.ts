@@ -2,7 +2,7 @@
 
 
 
-export class MessageVM  {
+export interface MessageVM  {
     id:number;
     threadId:number;
     participantId: number;
