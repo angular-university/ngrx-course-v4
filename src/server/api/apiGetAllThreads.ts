@@ -5,6 +5,7 @@ import * as _ from 'lodash';
 import {dbThreads, dbParticipants, dbMessages} from "../db/db-data";
 import {ThreadSummaryVM} from "../view-model/thread-summary.vm";
 import {Message} from "../model/message";
+import {buildParticipantNames} from "../model/buildParticipantNames";
 
 
 export function apiGetAllThreads(app: Application) {
@@ -34,10 +35,12 @@ function mapThreadToThreadSummary(thread: Thread): ThreadSummaryVM {
     const lastMessage: Message = _.last(messagesPerThread);
 
     return {
-        participantNames: _.join(thread.participantIds.map(id => dbParticipants[id].name), ', '),
+        participantNames: buildParticipantNames(thread),
         timestamp: lastMessage.timestamp,
         lastMessage: lastMessage.text
     };
 
 
 }
+
+

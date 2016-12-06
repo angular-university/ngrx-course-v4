@@ -19,9 +19,6 @@ export class ThreadSectionComponent implements OnInit {
 
   }
 
-
-
-
   ngOnInit() {
 
       this.threadsService.loadAllThreadViewModels()
@@ -31,12 +28,9 @@ export class ThreadSectionComponent implements OnInit {
           );
   }
 
-
-
     onThreadSelected(threadId:number) {
         this.currentThreadService.selectThread(threadId);
     }
-
 
 
 }

@@ -3,6 +3,8 @@ import {Application} from 'express';
 import {Thread} from "../model/thread";
 import {dbThreads} from "../db/db-data";
 import * as _ from 'lodash';
+import {ThreadDetailVM} from "../view-model/thread-detail.vm";
+import {buildParticipantNames} from "../model/buildParticipantNames";
 
 
 
@@ -17,7 +19,12 @@ export function apiGetThreadDetail(app: Application) {
 
         const thread = _.find(threads,thread => thread.id == threadId);
 
-        res.status(200).json({payload: thread});
+        const threadVM: ThreadDetailVM = {
+            participantNames: buildParticipantNames(thread),
+            messages: null
+        };
+
+        res.status(200).json({payload: threadVM});
 
     });
 

@@ -9,23 +9,23 @@ import {Message} from "../model/message";
 export const dbParticipants: {[key:number]:Participant} = {
     1: {
         id: 1,
-        name: 'Mom'
+        name: 'Alice'
     },
     2: {
         id: 2,
-        name: 'Dad'
+        name: 'Bob'
     },
     3: {
         id: 3,
-        name: 'Hugo'
+        name: 'Charlie'
     },
     4: {
         id: 4,
-        name: 'Alice'
+        name: 'David'
     },
     5: {
         id: 5,
-        name: 'Clara'
+        name: 'Erin'
     }
 };
 
