@@ -7,9 +7,15 @@ import {ThreadDetailVM} from "../../server/view-model/thread-detail.vm";
 
 
 
+
+
+
+
+
+
+
 @Injectable()
 export class ThreadsRestService {
-
 
 
     constructor(private http: Http) {

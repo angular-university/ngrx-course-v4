@@ -9,7 +9,6 @@ import * as _ from 'lodash';
 
 export function apiGetThreadDetail(app: Application) {
 
-
     app.route('/api/threads-vm/:id').get((req, res) => {
 
         const threadId = req.params['id'];
@@ -17,9 +16,6 @@ export function apiGetThreadDetail(app: Application) {
         const threads: Thread[] = <any> _.values(dbThreads);
 
         const thread = _.find(threads,thread => thread.id == threadId);
-
-
-
 
         res.status(200).json({payload: thread});
 

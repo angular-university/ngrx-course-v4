@@ -3,6 +3,10 @@ import {ThreadDetailVM} from "../../server/view-model/thread-detail.vm";
 import {Observable, BehaviorSubject} from "rxjs";
 import {ThreadsRestService} from "./threads-rest.service";
 
+
+
+
+
 @Injectable()
 export class CurrentThreadService {
 
@@ -19,6 +23,11 @@ export class CurrentThreadService {
     selectThread(threadId:number) {
         this.threadRestService.loadThreadDetail(threadId)
     }
+
+
+
+
+
 
 
 }
