@@ -74,6 +74,7 @@
   float: left;
   font-size: 13px;
   margin: 0;
+    font-weight: normal;
 }
 
 .message-time, .thread-time {
