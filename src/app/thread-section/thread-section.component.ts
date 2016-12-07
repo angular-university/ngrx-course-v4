@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ThreadsVM} from "../../server/view-model/threads.vm";
 import {ThreadsRestService} from "../services/threads-rest.service";
 import {CurrentThreadService} from "../services/current-thread.service";
+import {ParticipantService} from "../services/participant.service";
+import {Participant} from "../../server/model/participant";
 
 
 
@@ -13,9 +15,13 @@ import {CurrentThreadService} from "../services/current-thread.service";
 export class ThreadSectionComponent implements OnInit {
 
   threads: ThreadsVM;
+  participant: Participant;
 
 
-  constructor(private threadsService: ThreadsRestService, private currentThreadService: CurrentThreadService) {
+  constructor(
+      private threadsService: ThreadsRestService,
+      private currentThreadService: CurrentThreadService,
+      private participantService: ParticipantService) {
 
   }
 
@@ -26,6 +32,11 @@ export class ThreadSectionComponent implements OnInit {
               threads => this.threads = threads,
               console.error
           );
+
+      this.participantService.user$.subscribe(
+          participant => this.participant = participant
+      );
+
   }
 
     onThreadSelected(threadId:number) {

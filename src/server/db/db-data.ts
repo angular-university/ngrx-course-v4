@@ -17,7 +17,7 @@ export const dbParticipants: {[key:number]:Participant} = {
     },
     3: {
         id: 3,
-        name: 'Charlie'
+        name: 'Chuck'
     },
     4: {
         id: 4,

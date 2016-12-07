@@ -3,6 +3,8 @@ import {CurrentThreadService} from "../services/current-thread.service";
 import {Observable} from "rxjs";
 import {ThreadDetailVM} from "../../server/view-model/thread-detail.vm";
 import {ThreadsRestService} from "../services/threads-rest.service";
+import {ParticipantService} from "../services/participant.service";
+import {Participant} from "../../server/model/participant";
 
 @Component({
     selector: 'message-section',
@@ -11,12 +13,14 @@ import {ThreadsRestService} from "../services/threads-rest.service";
 })
 export class MessageSectionComponent implements OnInit {
 
-    participantId = 1; // to simplify the example,  we are always logged in with Alice
-    participantName = 'Alice';
+    participant: Participant;
     currentThread: ThreadDetailVM = null;
 
 
-    constructor(private currentThreadService: CurrentThreadService, private threadsRestService: ThreadsRestService) {
+    constructor(
+        private currentThreadService: CurrentThreadService,
+        private threadsRestService: ThreadsRestService,
+        private participantService: ParticipantService) {
 
     }
 
@@ -26,6 +30,10 @@ export class MessageSectionComponent implements OnInit {
         this.currentThreadService.thread$.subscribe(
             thread => this.currentThread = thread,
             console.error
+        );
+
+        this.participantService.user$.subscribe(
+            participant => this.participant = participant
         );
 
     }
@@ -39,7 +47,7 @@ export class MessageSectionComponent implements OnInit {
         input.value = '';
 
         const newMessage = {
-            participantName: this.participantName,
+            participantName: this.participant.name,
             text: message,
             timestamp: new Date().getTime(),
             id: null
@@ -48,7 +56,7 @@ export class MessageSectionComponent implements OnInit {
         this.currentThread.messages.push(newMessage);
 
         if (this.currentThread) {
-            this.threadsRestService.saveNewMessage(this.currentThread.id, this.participantId, message)
+            this.threadsRestService.saveNewMessage(this.currentThread.id, this.participant.id, message)
                 .subscribe(
                     () => {},
                     console.error
