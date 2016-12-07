@@ -35,10 +35,10 @@ export const dbThreads: {[key:number]: Thread} = {
     1: {
         id: 1,
         participantIds: [1, 2],
-        messageIds: [1, 2 ,3 ,4, 5],
+        messageIds: [1, 2 ,3 , 4, 5],
         readStatusByParticipant: {
             1: true,
-            2:true
+            2:false
         }
     },
     2: {
@@ -47,9 +47,9 @@ export const dbThreads: {[key:number]: Thread} = {
         messageIds: [6, 7, 8, 9, 10],
         readStatusByParticipant: {
             1: true,
-            3:false,
-            4: false,
-            5:false
+            3:true,
+            4: true,
+            5:true
         }
 
     },
@@ -58,11 +58,11 @@ export const dbThreads: {[key:number]: Thread} = {
         participantIds: [1,2,3,4,5],
         messageIds: [11, 12 ,13 ,14],
         readStatusByParticipant: {
-            1: false,
-            2: false,
-            3: false,
-            4: false,
-            5: false
+            1: true,
+            2: true,
+            3: true,
+            4: true,
+            5: true
         }
     }
 };

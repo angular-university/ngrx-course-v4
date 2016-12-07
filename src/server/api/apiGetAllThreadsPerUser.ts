@@ -8,15 +8,18 @@ import {Message} from "../model/message";
 import {buildParticipantNames} from "../model/buildParticipantNames";
 
 
-export function apiGetAllThreads(app: Application) {
+
+export function apiGetAllThreadsPerUser(app: Application) {
 
     app.route('/api/threads-vm').get((req, res) => {
 
         const participantId = parseInt(req.cookies['PARTICIPANTID']);
 
-        const threads: Thread[] = <any> _.values(dbThreads);
+        const allThreads: Thread[] = <any> _.values(dbThreads);
 
-        const unreadThreads = _.reduce(threads,
+        const threadsPerUser = _.filter(allThreads, thread => thread.participantIds.indexOf(participantId) !== -1);
+
+        const unreadThreads = _.reduce(threadsPerUser,
             (acc, thread) => {
             if (thread.id === participantId) {
                 acc++;
@@ -26,7 +29,7 @@ export function apiGetAllThreads(app: Application) {
 
         const threadsVm: ThreadsVM = {
             unreadThreadsCounter: unreadThreads,
-            threadSummaries: <any>threads.map(_.partial(mapThreadToThreadSummary, participantId))
+            threadSummaries: <any>threadsPerUser.map(_.partial(mapThreadToThreadSummary, participantId))
         };
 
         res.status(200).json({payload: threadsVm});
