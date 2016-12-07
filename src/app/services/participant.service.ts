@@ -20,8 +20,8 @@ export class ParticipantService {
 
 
     setUser(participantId: number) {
-        this.subject.next(dbParticipants[participantId]);
         document.cookie = 'PARTICIPANTID = ' + participantId;
+        this.subject.next(dbParticipants[participantId]);
     }
 
 
