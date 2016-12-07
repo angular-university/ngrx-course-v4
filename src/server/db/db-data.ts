@@ -34,18 +34,16 @@ export const dbParticipants: {[key:number]:Participant} = {
 export const dbThreads: {[key:number]: Thread} = {
     1: {
         id: 1,
-        participantIds: [1, 2],
         messageIds: [1, 2 ,3 , 4, 5],
-        readStatusByParticipant: {
+        participants: {
             1: true,
             2:false
         }
     },
     2: {
         id: 2,
-        participantIds: [ 1, 3 , 4, 5 ],
         messageIds: [6, 7, 8, 9, 10],
-        readStatusByParticipant: {
+        participants: {
             1: true,
             3:true,
             4: true,
@@ -55,11 +53,9 @@ export const dbThreads: {[key:number]: Thread} = {
     },
     3: {
         id: 3,
-        participantIds: [1,2,3,4,5],
         messageIds: [11, 12 ,13 ,14],
-        readStatusByParticipant: {
+        participants: {
             1: true,
-            2: true,
             3: true,
             4: true,
             5: true
@@ -137,7 +133,7 @@ export const dbMessages: {[key:number]: Message} = {
     11: {
         id: 11,
         threadId: 3,
-        participantId: 2,
+        participantId: 1,
         text: 'Everyone come to the table, dinner is ready ',
         timestamp: new Date().getTime()
     },
@@ -152,7 +148,7 @@ export const dbMessages: {[key:number]: Message} = {
         id: 13,
         threadId: 3,
         participantId: 4,
-        text: 'No dad we want to keep watching TV too its my favorite show ',
+        text: 'No Mom we want to keep watching TV too its my favorite show ',
         timestamp: new Date().getTime()
     },
     14: {

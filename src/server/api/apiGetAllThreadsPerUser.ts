@@ -13,15 +13,15 @@ export function apiGetAllThreadsPerUser(app: Application) {
 
     app.route('/api/threads-vm').get((req, res) => {
 
-        const participantId = parseInt(req.cookies['PARTICIPANTID']);
+        const participantId = req.cookies['PARTICIPANTID'];
 
         const allThreads: Thread[] = <any> _.values(dbThreads);
 
-        const threadsPerUser = _.filter(allThreads, thread => thread.participantIds.indexOf(participantId) !== -1);
+        const threadsPerUser = _.filter(allThreads, thread =>  _.includes(<any>_.keys(thread.participants), participantId));
 
         const unreadThreads = _.reduce(threadsPerUser,
             (acc, thread) => {
-            if (thread.id === participantId) {
+            if (thread.id == participantId) {
                 acc++;
             }
             return acc;
@@ -52,7 +52,7 @@ function mapThreadToThreadSummary(participantId:number, thread: Thread): UserThr
         participantNames: buildParticipantNames(thread),
         timestamp: lastMessage.timestamp,
         lastMessage: lastMessage.text,
-        read: thread.readStatusByParticipant[participantId]
+        read: thread.participants[participantId]
     };
 
 
