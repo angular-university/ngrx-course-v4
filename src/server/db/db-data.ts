@@ -36,18 +36,18 @@ export const dbThreads: {[key:number]: Thread} = {
         id: 1,
         messageIds: [1, 2 ,3 , 4, 5],
         participants: {
-            1: true,
-            2:false
+            1: false,
+            2: false
         }
     },
     2: {
         id: 2,
         messageIds: [6, 7, 8, 9, 10],
         participants: {
-            1: true,
-            3:true,
-            4: true,
-            5:true
+            1: false,
+            3: false,
+            4: false,
+            5: false
         }
 
     },
@@ -55,9 +55,9 @@ export const dbThreads: {[key:number]: Thread} = {
         id: 3,
         messageIds: [11, 12 ,13 ,14],
         participants: {
-            1: true,
-            3: true,
-            4: true,
+            1: false,
+            3: false,
+            4: false,
             5: true
         }
     }

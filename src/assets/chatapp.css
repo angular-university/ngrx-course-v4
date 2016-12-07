@@ -55,6 +55,7 @@
 
 .thread-name.unread {
     color: red;
+    font-weight: bold;
 }
 
 .thread-list:hover .thread-list-item:hover {
