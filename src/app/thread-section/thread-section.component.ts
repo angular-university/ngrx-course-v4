@@ -34,6 +34,7 @@ export class ThreadSectionComponent implements OnInit {
       );
 
       user$.mergeMap(user => this.threadsService.loadAllThreadViewModels())
+          .debug('Loaded All Threads From Server: ')
           .subscribe(
               threads => {
                   this.threads = threads;

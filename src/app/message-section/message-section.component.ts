@@ -27,12 +27,16 @@ export class MessageSectionComponent implements OnInit {
 
     ngOnInit() {
 
-        this.currentThreadService.thread$.subscribe(
+        this.currentThreadService.thread$
+            .debug('New current thread on Messages Section:')
+            .subscribe(
             thread => this.currentThread = thread,
             console.error
         );
 
-        this.participantService.user$.subscribe(
+        this.participantService.user$
+            .debug('New user on Messages Section:')
+            .subscribe(
             participant => this.participant = participant
         );
 
@@ -40,8 +44,6 @@ export class MessageSectionComponent implements OnInit {
 
 
     onNewMessage(input:any) {
-
-        console.log("message emitted", input.value);
 
         const message = input.value;
         input.value = '';
@@ -57,6 +59,7 @@ export class MessageSectionComponent implements OnInit {
 
         if (this.currentThread) {
             this.threadsRestService.saveNewMessage(this.currentThread.id, this.participant.id, message)
+                .debug('New message saved, server reponse:')
                 .subscribe(
                     () => {},
                     console.error
