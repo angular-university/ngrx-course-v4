@@ -24,6 +24,7 @@
     "@angular/router": "3.2.1",
     "@types/lodash": "^4.14.41",
     "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
     "express": "^4.14.0",
     "lodash": "^4.17.2",

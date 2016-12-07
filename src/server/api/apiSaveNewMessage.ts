@@ -23,11 +23,6 @@ export function apiSaveNewMessage(app: Application) {
 
         dbMessages[message.id] = message;
 
-
-        console.log(dbMessages);
-
-
-
         res.status(200).send();
 
     });

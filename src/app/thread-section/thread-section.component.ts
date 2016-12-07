@@ -27,15 +27,20 @@ export class ThreadSectionComponent implements OnInit {
 
   ngOnInit() {
 
-      this.threadsService.loadAllThreadViewModels()
-          .subscribe(
-              threads => this.threads = threads,
-              console.error
-          );
+      const user$ = this.participantService.user$;
 
-      this.participantService.user$.subscribe(
+      user$.subscribe(
           participant => this.participant = participant
       );
+
+      user$.mergeMap(user => this.threadsService.loadAllThreadViewModels())
+          .subscribe(
+              threads => {
+                  this.threads = threads;
+                  this.currentThreadService.selectThread(null);
+              },
+              console.error
+          );
 
   }
 

@@ -12,10 +12,20 @@ export function apiGetAllThreads(app: Application) {
 
     app.route('/api/threads-vm').get((req, res) => {
 
+        const participantId = parseInt(req.cookies['PARTICIPANTID']);
+
         const threads: Thread[] = <any> _.values(dbThreads);
 
+        const unreadThreads = _.reduce(threads,
+            (acc, thread) => {
+            if (thread.id === participantId) {
+                acc++;
+            }
+            return acc;
+        }, 0);
+
         const threadsVm: ThreadsVM = {
-            unreadThreadsCounter: 2,
+            unreadThreadsCounter: unreadThreads,
             threadSummaries: <any>threads.map(mapThreadToThreadSummary)
         };
 

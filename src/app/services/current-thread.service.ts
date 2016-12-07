@@ -20,15 +20,21 @@ export class CurrentThreadService {
     }
 
 
-    selectThread(threadId:number) {
+    selectThread(threadId:number | null) {
 
-        const response = this.threadRestService.loadThreadDetail(threadId);
+        if (threadId) {
+            const response = this.threadRestService.loadThreadDetail(threadId);
 
-        this.threadRestService.loadThreadDetail(threadId)
-            .subscribe(
-                thread => this.threadSubject.next(thread),
-                console.error
-            );
+            this.threadRestService.loadThreadDetail(threadId)
+                .subscribe(
+                    thread => this.threadSubject.next(thread),
+                    console.error
+                );
+        }
+        else {
+            this.threadSubject.next(null);
+        }
+
     }
 
 
