@@ -12,7 +12,7 @@ import {ThreadsRestService} from "../services/threads-rest.service";
 export class MessageSectionComponent implements OnInit {
 
     participantId = 1; // to simplify the example,  we are always logged in with Alice
-
+    participantName = 'Alice';
     currentThread: ThreadDetailVM = null;
 
 
@@ -38,16 +38,25 @@ export class MessageSectionComponent implements OnInit {
         const message = input.value;
         input.value = '';
 
+        const newMessage = {
+            participantName: this.participantName,
+            text: message,
+            timestamp: new Date().getTime(),
+            id: null
+        };
+
+        this.currentThread.messages.push(newMessage);
+
         if (this.currentThread) {
             this.threadsRestService.saveNewMessage(this.currentThread.id, this.participantId, message)
                 .subscribe(
-                    () => this.currentThreadService.selectThread(this.currentThread.id),
+                    () => {},
                     console.error
                 );
         }
-
-
     }
+
+
 
 
 }
