@@ -12,7 +12,7 @@
 
 .chatapp {
   font-family: 'Muli', 'Helvetica Neue', helvetica, arial;
-  max-width: 760px;
+  max-width: 670px;
   margin: 20px auto;
   overflow: hidden;
 }
@@ -29,12 +29,12 @@
 
 .message-section {
   float: right;
-  width: 65%;
+  width: 400px;
 }
 
 .thread-section {
   float: left;
-  width: 32.5%;
+  width: 255px;
 }
 
 .message-thread-heading,
@@ -51,6 +51,10 @@
 .thread-list-item {
   border-bottom: 1px solid #ccc;
   cursor: pointer;
+}
+
+.thread-name.unread {
+    color: red;
 }
 
 .thread-list:hover .thread-list-item:hover {
@@ -98,3 +102,5 @@
   margin: 20px 0 0;
   padding: 10px;
 }
+
+

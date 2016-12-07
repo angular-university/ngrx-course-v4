@@ -3,7 +3,7 @@ import {Thread} from "../model/thread";
 import {ThreadsVM} from "../view-model/threads.vm";
 import * as _ from 'lodash';
 import {dbThreads, dbParticipants, dbMessages} from "../db/db-data";
-import {ThreadSummaryVM} from "../view-model/thread-summary.vm";
+import {UserThreadSummaryVM} from "../view-model/user-thread-summary.vm";
 import {Message} from "../model/message";
 import {buildParticipantNames} from "../model/buildParticipantNames";
 
@@ -26,7 +26,7 @@ export function apiGetAllThreads(app: Application) {
 
         const threadsVm: ThreadsVM = {
             unreadThreadsCounter: unreadThreads,
-            threadSummaries: <any>threads.map(mapThreadToThreadSummary)
+            threadSummaries: <any>threads.map(_.partial(mapThreadToThreadSummary, participantId))
         };
 
         res.status(200).json({payload: threadsVm});
@@ -36,7 +36,7 @@ export function apiGetAllThreads(app: Application) {
 }
 
 
-function mapThreadToThreadSummary(thread: Thread): ThreadSummaryVM {
+function mapThreadToThreadSummary(participantId:number, thread: Thread): UserThreadSummaryVM {
 
     const messages: Message[] =  <any>_.values(dbMessages);
 
@@ -48,7 +48,8 @@ function mapThreadToThreadSummary(thread: Thread): ThreadSummaryVM {
         id: thread.id,
         participantNames: buildParticipantNames(thread),
         timestamp: lastMessage.timestamp,
-        lastMessage: lastMessage.text
+        lastMessage: lastMessage.text,
+        read: thread.readStatusByParticipant[participantId]
     };
 
 

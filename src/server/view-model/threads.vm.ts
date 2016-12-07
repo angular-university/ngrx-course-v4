@@ -1,9 +1,12 @@
 
 
-import {ThreadSummaryVM} from "./thread-summary.vm";
+
+
+
+import {UserThreadSummaryVM} from "./user-thread-summary.vm";
 
 
 export interface ThreadsVM {
     unreadThreadsCounter: number;
-    threadSummaries: ThreadSummaryVM[];
+    threadSummaries: UserThreadSummaryVM[];
 }
