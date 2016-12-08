@@ -1,6 +1,6 @@
 
 import {Application} from 'express';
-import {dbMessages, dbThreads} from "../db/db-data";
+import {dbMessages, dbThreads, dbMessagesQueuePerUser} from "../db/db-data";
 import {Message} from "../model/message";
 import {Thread} from "../model/thread";
 import * as _ from 'lodash';
@@ -34,7 +34,12 @@ export function apiSaveNewMessage(app: Application) {
 
         const otherParticipantIds = _.keys(thread.participants).filter(id => id !== participantId);
 
-        otherParticipantIds.forEach(participantId => thread.participants[participantId] = false);
+        otherParticipantIds.forEach(participantId => {
+            thread.participants[participantId] = false;
+            dbMessagesQueuePerUser[participantId].push(message.id);
+
+        });
+
         thread.participants[participantId] = true;
 
         res.status(200).send();

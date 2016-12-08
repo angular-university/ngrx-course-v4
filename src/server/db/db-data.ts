@@ -177,6 +177,15 @@ export const dbMessages: {[key:number]: Message} = {
 
 
 
+export const dbMessagesQueuePerUser: {[key:number]: number[]} = {
+
+    1: [],
+    2:[],
+    3: [],
+    4: [],
+    5: []
+
+};
 
 
 
