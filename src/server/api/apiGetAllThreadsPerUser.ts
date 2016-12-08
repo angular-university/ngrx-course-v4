@@ -19,15 +19,10 @@ export function apiGetAllThreadsPerUser(app: Application) {
 
         const threadsPerUser = _.filter(allThreads, thread =>  _.includes(<any>_.keys(thread.participants), participantId));
 
-        console.log("looking for participant Id " + participantId);
-
         const unreadThreads = _.reduce(threadsPerUser,
             (acc, thread) => {
 
-            console.log("checking participants " + JSON.stringify(thread.participants));
-
             if (!thread.participants[participantId]) {
-                console.log('thread unread for user ...');
                 acc++;
             }
             return acc;
