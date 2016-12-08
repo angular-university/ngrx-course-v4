@@ -1,4 +1,4 @@
-<ul class="message-list">
+<ul class="message-list" #list>
     <li class="message-list-item" *ngFor="let message of messages">
         <h5 class="message-author-name">{{message.participantName}}</h5>
         <div class="message-time">{{message.timestamp | date :'shortTime'}}</div>
