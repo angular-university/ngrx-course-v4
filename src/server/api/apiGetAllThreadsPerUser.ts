@@ -48,8 +48,6 @@ function mapThreadToThreadSummary(participantId:string, thread: Thread): UserThr
 
     const lastMessage: Message = _.last(messagesPerThread);
 
-    console.log('thread', thread);
-
     return {
         id: thread.id,
         participantNames: buildParticipantNames(thread),

@@ -36,9 +36,6 @@ export function apiSaveNewMessage(app: Application) {
         const otherParticipantIds = _.keys(thread.participants).filter(id => parseInt(id) !== participantId);
 
 
-        console.log("otherParticipantIds", otherParticipantIds);
-
-
         otherParticipantIds.forEach(participantId => {
             thread.participants[participantId] = false;
             dbMessagesQueuePerUser[participantId].push(message.id);
@@ -46,11 +43,6 @@ export function apiSaveNewMessage(app: Application) {
         });
 
         thread.participants[participantId] = true;
-
-
-        console.log("thread ", thread, '\n');
-
-        console.log("dbMessagesQueuePerUser", dbMessagesQueuePerUser);
 
         res.status(200).send();
 

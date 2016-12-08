@@ -17,6 +17,7 @@ export class ThreadSectionComponent implements OnInit {
 
   threads: ThreadsVM;
   participant: Participant;
+  currentSelectedThreadId: number;
 
 
   constructor(
@@ -49,6 +50,12 @@ export class ThreadSectionComponent implements OnInit {
           .subscribe(
               newMessage => {
                   console.log("processing new message for user ", newMessage);
+
+                  if (newMessage.threadId !== this.currentSelectedThreadId) {
+                      const  threadWithNewMessage = _.find(this.threads.threadSummaries, thread => thread.id === newMessage.threadId);
+                      threadWithNewMessage.read = false;
+                      this.threads.unreadThreadsCounter++;
+                  }
               },
               console.error
           );
@@ -62,6 +69,7 @@ export class ThreadSectionComponent implements OnInit {
             threadSummary.read = true;
             this.threads.unreadThreadsCounter--;
         }
+        this.currentSelectedThreadId = threadId;
         this.currentThreadService.selectThread(threadId);
     }
 

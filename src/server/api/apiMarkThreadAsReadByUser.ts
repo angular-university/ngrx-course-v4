@@ -11,8 +11,6 @@ export function apiUpdateThread(app: Application) {
 
         const participantId = req.headers['participantid'];
 
-        console.log("updating user", participantId);
-
         const threadId = req.params['id'];
 
         const updatedProps = req.body;

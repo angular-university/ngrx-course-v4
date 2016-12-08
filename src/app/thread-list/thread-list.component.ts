@@ -11,13 +11,18 @@ export class ThreadListComponent implements OnInit {
     @Input()
     threads: UserThreadSummaryVM[];
 
+    @Input()
+    currentSelectedThreadId: number;
+
     @Output()
     threadSelected = new EventEmitter<number>();
+
 
 
     constructor() {
 
     }
+
 
 
     ngOnInit() {
@@ -28,6 +33,7 @@ export class ThreadListComponent implements OnInit {
     selectThread(threadId:number) {
         this.threadSelected.emit(threadId);
     }
+
 
 
 }

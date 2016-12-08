@@ -21,7 +21,7 @@
   border: 1px solid rgba(26, 141, 246, 0.38);
   border-radius: 4px;
   font-size: 16px;
-  height: 400px;
+  height: 325px;
   margin: 0;
   overflow-y: auto;
   padding: 0;
@@ -55,6 +55,10 @@
 
 .thread-name.unread {
     color: red;
+    font-weight: bold;
+}
+
+.thread-name.selected {
     font-weight: bold;
 }
 

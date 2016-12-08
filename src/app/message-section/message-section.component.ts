@@ -5,6 +5,8 @@ import {ThreadDetailVM} from "../../server/view-model/thread-detail.vm";
 import {ThreadsRestService} from "../services/threads-rest.service";
 import {ParticipantService} from "../services/participant.service";
 import {Participant} from "../../server/model/participant";
+import {MessageVM} from "../../server/view-model/message.vm";
+import {MessageNotificationsService} from "../services/message-notifications.service";
 
 @Component({
     selector: 'message-section',
@@ -20,7 +22,8 @@ export class MessageSectionComponent implements OnInit {
     constructor(
         private currentThreadService: CurrentThreadService,
         private threadsRestService: ThreadsRestService,
-        private participantService: ParticipantService) {
+        private participantService: ParticipantService,
+        private messageNotificationService: MessageNotificationsService) {
 
     }
 
@@ -49,6 +52,16 @@ export class MessageSectionComponent implements OnInit {
                 console.error
             );
 
+
+        this.messageNotificationService.newMessagesForUser$
+            .subscribe(
+                message => {
+                    if (message.threadId == this.currentThread.id) {
+                        this.currentThread.messages.push(message);
+                    }
+                }
+            );
+
     }
 
 
@@ -57,11 +70,12 @@ export class MessageSectionComponent implements OnInit {
         const message = input.value;
         input.value = '';
 
-        const newMessage = {
+        const newMessage: MessageVM = {
             participantName: this.participant.name,
             text: message,
             timestamp: new Date().getTime(),
-            id: null
+            id: null,
+            threadId: this.currentThread.id
         };
 
         this.currentThread.messages.push(newMessage);
