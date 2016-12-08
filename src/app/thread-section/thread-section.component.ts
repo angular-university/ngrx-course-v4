@@ -5,6 +5,7 @@ import {CurrentThreadService} from "../services/current-thread.service";
 import {ParticipantService} from "../services/participant.service";
 import {Participant} from "../../server/model/participant";
 import * as _ from 'lodash';
+import {MessageNotificationsService} from "../services/message-notifications.service";
 
 
 @Component({
@@ -21,7 +22,8 @@ export class ThreadSectionComponent implements OnInit {
   constructor(
       private threadsService: ThreadsRestService,
       private currentThreadService: CurrentThreadService,
-      private participantService: ParticipantService) {
+      private participantService: ParticipantService,
+      private messageNotificationService: MessageNotificationsService ) {
 
   }
 
@@ -39,6 +41,14 @@ export class ThreadSectionComponent implements OnInit {
               threads => {
                   this.threads = threads;
                   this.currentThreadService.selectThread(null);
+              },
+              console.error
+          );
+
+      this.messageNotificationService.newMessagesForUser$
+          .subscribe(
+              newMessage => {
+                  console.log("processing new message for user ", newMessage);
               },
               console.error
           );

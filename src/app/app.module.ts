@@ -11,6 +11,7 @@ import {CurrentThreadService} from "./services/current-thread.service";
 import {ThreadsRestService} from "./services/threads-rest.service";
 import {ParticipantService} from "./services/participant.service";
 import { UserSelectionComponent } from './user-selection/user-selection.component';
+import {MessageNotificationsService} from "./services/message-notifications.service";
 
 
 
@@ -29,7 +30,7 @@ import { UserSelectionComponent } from './user-selection/user-selection.componen
     FormsModule,
     HttpModule
   ],
-  providers: [ThreadsRestService, CurrentThreadService, ParticipantService],
+  providers: [ThreadsRestService, CurrentThreadService, ParticipantService, MessageNotificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

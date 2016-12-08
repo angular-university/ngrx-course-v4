@@ -67,7 +67,7 @@ export class MessageSectionComponent implements OnInit {
         this.currentThread.messages.push(newMessage);
 
         if (this.currentThread) {
-            this.threadsRestService.saveNewMessage(this.currentThread.id, this.participant.id, message)
+            this.threadsRestService.saveNewMessage(this.currentThread.id, message)
                 .debug('New message saved, server reponse:')
                 .subscribe(
                     () => {},

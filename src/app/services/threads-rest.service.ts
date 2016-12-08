@@ -28,8 +28,8 @@ export class ThreadsRestService {
     }
 
 
-    saveNewMessage(threadId: number, participantId: number, message: string): Observable<any> {
-        return this.http.post('/api/threads-vm', JSON.stringify({threadId, participantId, message}), this.xhrHeaders());
+    saveNewMessage(threadId: number, message: string): Observable<any> {
+        return this.http.post('/api/threads-vm', JSON.stringify({threadId, message}), this.xhrHeaders());
     }
 
 

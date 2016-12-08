@@ -7,6 +7,7 @@ import {ThreadDetailVM} from "../view-model/thread-detail.vm";
 import {buildParticipantNames} from "../model/buildParticipantNames";
 import {Message} from "../model/message";
 import {MessageVM} from "../view-model/message.vm";
+import {buildMessageVmFromMessage} from "../model/buildMessageVmFromMessage";
 
 
 
@@ -39,12 +40,4 @@ export function apiGetThreadDetail(app: Application) {
 }
 
 
-function buildMessageVmFromMessage({id,participantId, timestamp, text}): MessageVM {
-    return {
-        id,
-        participantName: dbParticipants[participantId].name,
-        timestamp,
-        text
-    }
-}
 

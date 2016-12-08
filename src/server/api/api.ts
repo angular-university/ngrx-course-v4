@@ -4,6 +4,7 @@ import {apiGetThreadDetail} from "./apiGetThreadDetail";
 import {apiSaveNewMessage} from "./apiSaveNewMessage";
 import {apiGetAllThreadsPerUser} from "./apiGetAllThreadsPerUser";
 import {apiUpdateThread} from "./apiMarkThreadAsReadByUser";
+import {apiMessageNotificationsPerUser} from "./apiMessageNotificationsPerUser";
 
 
 
@@ -15,5 +16,6 @@ export function initApi(app: Application) {
     apiGetThreadDetail(app);
     apiSaveNewMessage(app);
     apiUpdateThread(app);
+    apiMessageNotificationsPerUser(app);
 
 }
