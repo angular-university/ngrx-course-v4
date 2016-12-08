@@ -12,7 +12,6 @@ import {ThreadsRestService} from "./services/threads-rest.service";
 import {ParticipantService} from "./services/participant.service";
 import { UserSelectionComponent } from './user-selection/user-selection.component';
 import {MessageNotificationsService} from "./services/message-notifications.service";
-import {CustomRequestOptions} from "./services/custom-request-options";
 
 
 
@@ -35,8 +34,7 @@ import {CustomRequestOptions} from "./services/custom-request-options";
       ThreadsRestService,
       CurrentThreadService,
       ParticipantService,
-      MessageNotificationsService,
-      {provide: RequestOptions, useClass: CustomRequestOptions, deps: [ParticipantService]}
+      MessageNotificationsService
   ],
   bootstrap: [AppComponent]
 })
