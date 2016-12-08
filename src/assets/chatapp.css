@@ -60,6 +60,7 @@
 
 .thread-name.selected {
     font-weight: bold;
+    text-decoration: underline;
 }
 
 .thread-list:hover .thread-list-item:hover {

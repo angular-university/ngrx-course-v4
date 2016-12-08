@@ -22,7 +22,7 @@ export class MessageNotificationsService {
             participant => this.participantId = participant.id
         );
 
-        setInterval( this.loadNewMessagesForUser.bind(this) , 5000);
+        setInterval( this.loadNewMessagesForUser.bind(this) , 2000);
 
     }
 

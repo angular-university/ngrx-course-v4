@@ -54,6 +54,7 @@ export class ThreadSectionComponent implements OnInit {
                   if (newMessage.threadId !== this.currentSelectedThreadId) {
                       const  threadWithNewMessage = _.find(this.threads.threadSummaries, thread => thread.id === newMessage.threadId);
                       threadWithNewMessage.read = false;
+                      threadWithNewMessage.lastMessage = newMessage.text;
                       this.threads.unreadThreadsCounter++;
                   }
               },

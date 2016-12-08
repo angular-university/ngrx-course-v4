@@ -10,13 +10,15 @@ import * as _ from 'lodash';
     templateUrl: './message-list.component.html',
     styleUrls: ['./message-list.component.css']
 })
-export class MessageListComponent implements OnInit, OnChanges {
+export class MessageListComponent implements OnInit, AfterViewChecked {
 
     @Input()
     messages: MessageVM[];
 
     @ViewChild('list')
     list: ElementRef;
+
+    messagesCount = 0;
 
 
     constructor() {
@@ -25,21 +27,21 @@ export class MessageListComponent implements OnInit, OnChanges {
 
 
 
-    ngOnChanges() {
+    ngAfterViewChecked() {
 
         setTimeout(() => {
             if (this.list) {
                 const items =  this.list.nativeElement.querySelectorAll('li');
-                const lastItem = _.last(items);
-                console.log(lastItem);
+                if (items && items.length !== this.messagesCount) {
+                    const lastItem:any = _.last(items);
+                    if (lastItem) {
+                        lastItem.scrollIntoView();
+                        this.messagesCount = items.length;
+                    }
+                }
             }
         });
-
-
     }
-
-
-
 
 
     ngOnInit() {
