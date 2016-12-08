@@ -40,6 +40,15 @@ export class MessageSectionComponent implements OnInit {
             participant => this.participant = participant
         );
 
+        this.currentThreadService.thread$
+            .debug('marking thread as read by user:')
+            .filter(thread => !!thread)
+            .mergeMap(thread => this.threadsRestService.markThreadAsReadByUser(thread.id))
+            .subscribe(
+                () => {},
+                console.error
+            );
+
     }
 
 

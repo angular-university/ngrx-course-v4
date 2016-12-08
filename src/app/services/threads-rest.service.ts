@@ -32,6 +32,12 @@ export class ThreadsRestService {
         return this.http.post('/api/threads-vm', JSON.stringify({threadId, participantId, message}), this.xhrHeaders());
     }
 
+
+    markThreadAsReadByUser(threadId: number): Observable<any> {
+        return this.http.patch(`/api/threads-vm/${threadId}`, JSON.stringify({read:true}), this.xhrHeaders());
+    }
+
+
     xhrHeaders() {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json; charset=utf-8');
