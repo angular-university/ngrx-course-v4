@@ -34,10 +34,8 @@ export function apiSaveNewMessage(app: Application) {
 
         const otherParticipantIds = _.keys(thread.participants).filter(id => id !== participantId);
 
-
         otherParticipantIds.forEach(participantId => thread.participants[participantId] = false);
         thread.participants[participantId] = true;
-
 
         res.status(200).send();
 
