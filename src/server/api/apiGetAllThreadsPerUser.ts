@@ -13,7 +13,7 @@ export function apiGetAllThreadsPerUser(app: Application) {
 
     app.route('/api/threads-vm').get((req, res) => {
 
-        const participantId = req.cookies['PARTICIPANTID'];
+        const participantId = req.headers['participantid'];
 
         const allThreads: Thread[] = <any> _.values(dbThreads);
 
@@ -40,7 +40,7 @@ export function apiGetAllThreadsPerUser(app: Application) {
 }
 
 
-function mapThreadToThreadSummary(participantId:number, thread: Thread): UserThreadSummaryVM {
+function mapThreadToThreadSummary(participantId:string, thread: Thread): UserThreadSummaryVM {
 
     const messages: Message[] =  <any>_.values(dbMessages);
 

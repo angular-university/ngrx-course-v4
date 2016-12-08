@@ -11,7 +11,7 @@ export function apiUpdateThread(app: Application) {
 
     app.route('/api/threads-vm/:id').patch((req, res) => {
 
-        const participantId = req.cookies['PARTICIPANTID'];
+        const participantId = req.headers['participantid'];
 
         const threadId = req.params['id'];
 

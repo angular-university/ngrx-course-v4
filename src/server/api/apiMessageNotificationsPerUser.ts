@@ -10,14 +10,14 @@ export function apiMessageNotificationsPerUser(app: Application) {
 
     app.route('/api/notifications/messages').post((req, res) => {
 
-        const participantId = req.cookies['PARTICIPANTID'];
+        const participantId = req.headers['participantid'];
 
-        console.log("participantId", participantId);
-        console.log("dbMessagesQueuePerUser",dbMessagesQueuePerUser);
+        if (!participantId) {
+            res.status(200).json({payload:[]});
+            return;
+        }
 
         const messageIdsQueuedForUser = dbMessagesQueuePerUser[participantId];
-
-        console.log("messageIdsQueuedForUser", messageIdsQueuedForUser);
 
         const messagesQueued = [];
 
@@ -30,6 +30,7 @@ export function apiMessageNotificationsPerUser(app: Application) {
         dbMessagesQueuePerUser[participantId] = [];
 
         res.status(200).json({payload: messagesQueued});
+
     });
 
 }

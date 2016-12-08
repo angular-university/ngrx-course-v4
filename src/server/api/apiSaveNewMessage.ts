@@ -17,7 +17,7 @@ export function apiSaveNewMessage(app: Application) {
         const payload = req.body;
 
         const threadId = parseInt(payload.threadId),
-            participantId = req.cookies['PARTICIPANTID'];
+            participantId = parseInt(req.headers['participantid']);
 
         const message: Message = {
             id: messageIdCounter++,
@@ -27,12 +27,13 @@ export function apiSaveNewMessage(app: Application) {
             participantId
         };
 
-        // save the new message, its already linked to a thread
+        // save the new message, it
+        // s already linked to a thread
         dbMessages[message.id] = message;
 
         const thread = findThreadById(threadId);
 
-        const otherParticipantIds = _.keys(thread.participants).filter(id => id !== participantId);
+        const otherParticipantIds = _.keys(thread.participants).filter(id => parseInt(id) !== participantId);
 
 
         console.log("otherParticipantIds", otherParticipantIds);
