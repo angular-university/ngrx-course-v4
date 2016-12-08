@@ -9,7 +9,7 @@ export class ParticipantService {
 
     private subject = new BehaviorSubject<Participant>(null);
 
-    user$: Observable<Participant> = this.subject.asObservable();
+    user$: Observable<Participant> = this.subject.asObservable().filter(participant => !!participant);
 
 
     constructor() {

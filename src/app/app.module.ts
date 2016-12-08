@@ -36,7 +36,7 @@ import {CustomRequestOptions} from "./services/custom-request-options";
       CurrentThreadService,
       ParticipantService,
       MessageNotificationsService,
-      {provide: RequestOptions, useClass: CustomRequestOptions}
+      {provide: RequestOptions, useClass: CustomRequestOptions, deps: [ParticipantService]}
   ],
   bootstrap: [AppComponent]
 })

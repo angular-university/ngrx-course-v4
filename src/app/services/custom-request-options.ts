@@ -2,14 +2,21 @@
 
 import {BaseRequestOptions} from "@angular/http";
 import {Injectable} from "@angular/core";
+import {ParticipantService} from "./participant.service";
 
 
-@Injectable()
 export class CustomRequestOptions extends BaseRequestOptions {
 
-    constructor() {
+
+    constructor(participantService: ParticipantService) {
         super();
-        this.headers.append('PARTICIPANTID', 'Hello-world');
+
+        participantService.user$
+            .subscribe(
+                participant => this.headers.set('PARTICIPANTID', participant.id.toString())
+            );
     }
+
+
 
 }
