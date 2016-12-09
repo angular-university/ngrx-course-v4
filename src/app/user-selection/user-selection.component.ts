@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ParticipantService} from "../services/participant.service";
+
 
 @Component({
   selector: 'user-selection',
@@ -8,9 +8,7 @@ import {ParticipantService} from "../services/participant.service";
 })
 export class UserSelectionComponent implements OnInit {
 
-
-
-  constructor(private participantService: ParticipantService) {
+  constructor() {
 
 
 
@@ -23,7 +21,6 @@ export class UserSelectionComponent implements OnInit {
 
   onSelectUser(participantId) {
 
-      this.participantService.setUser(participantId);
 
   }
 
