@@ -1,10 +1,10 @@
 
 import {Application} from 'express';
 import {dbMessages, dbThreads, dbMessagesQueuePerUser} from "../db/db-data";
-import {Message} from "../model/message";
-import {Thread} from "../model/thread";
 import * as _ from 'lodash';
-import {findThreadById} from "../model/findThreadById";
+import {Message} from "../../shared/model/message";
+import {findThreadById} from "../../shared/model/findThreadById";
+
 
 
 let messageIdCounter = 20;

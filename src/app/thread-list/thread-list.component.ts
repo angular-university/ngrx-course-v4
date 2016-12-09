@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
-import {UserThreadSummaryVM} from "../../server/view-model/user-thread-summary.vm";
+import {UserThreadSummaryVM} from "../../shared/view-model/user-thread-summary.vm";
 
 @Component({
     selector: 'thread-list',

@@ -2,7 +2,10 @@
 
 import {Application} from 'express';
 import {dbMessagesQueuePerUser, dbMessages} from "../db/db-data";
-import {buildMessageVmFromMessage} from "../model/buildMessageVmFromMessage";
+import {buildMessageVmFromMessage} from "../../shared/model/buildMessageVmFromMessage";
+
+
+
 
 
 export function apiMessageNotificationsPerUser(app: Application) {

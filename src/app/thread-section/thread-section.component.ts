@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {ThreadsVM} from "../../server/view-model/threads.vm";
 import {ThreadsRestService} from "../services/threads-rest.service";
 import {CurrentThreadService} from "../services/current-thread.service";
 import {ParticipantService} from "../services/participant.service";
-import {Participant} from "../../server/model/participant";
 import * as _ from 'lodash';
 import {MessageNotificationsService} from "../services/message-notifications.service";
+import {Participant} from "../../shared/model/participant";
+import {ThreadsVM} from "../../shared/view-model/threads.vm";
 
 
 @Component({

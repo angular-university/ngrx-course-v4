@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ParticipantService} from "../services/participant.service";
-import {Participant} from "../../server/model/participant";
 
 @Component({
   selector: 'user-selection',

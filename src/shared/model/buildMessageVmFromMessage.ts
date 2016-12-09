@@ -2,7 +2,8 @@
 
 
 import {MessageVM} from "../view-model/message.vm";
-import {dbParticipants} from "../db/db-data";
+import {dbParticipants} from "../../server/db/db-data";
+
 
 
 

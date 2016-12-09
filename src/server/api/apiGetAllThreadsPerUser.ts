@@ -1,11 +1,13 @@
 import {Application} from 'express';
-import {Thread} from "../model/thread";
-import {ThreadsVM} from "../view-model/threads.vm";
+
 import * as _ from 'lodash';
 import {dbThreads, dbParticipants, dbMessages} from "../db/db-data";
-import {UserThreadSummaryVM} from "../view-model/user-thread-summary.vm";
-import {Message} from "../model/message";
-import {buildParticipantNames} from "../model/buildParticipantNames";
+import {Thread} from "../../shared/model/thread";
+import {ThreadsVM} from "../../shared/view-model/threads.vm";
+import {Message} from "../../shared/model/message";
+import {UserThreadSummaryVM} from "../../shared/view-model/user-thread-summary.vm";
+import {buildParticipantNames} from "../../shared/model/buildParticipantNames";
+
 
 
 

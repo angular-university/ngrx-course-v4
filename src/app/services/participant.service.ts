@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, BehaviorSubject} from "rxjs";
-import {Participant} from "../../server/model/participant";
 import {dbParticipants} from "../../server/db/db-data";
+import {Participant} from "../../shared/model/participant";
 
 
 @Injectable()

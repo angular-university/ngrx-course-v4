@@ -3,9 +3,9 @@
 
 
 
-import {dbThreads} from "../db/db-data";
 import {Thread} from "./thread";
 import * as _ from 'lodash';
+import {dbThreads} from "../../server/db/db-data";
 
 
 

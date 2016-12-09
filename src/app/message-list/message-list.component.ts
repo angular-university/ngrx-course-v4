@@ -2,8 +2,8 @@ import {
     Component, OnInit, Input, ViewChildren, AfterViewChecked, QueryList, ElementRef,
     OnChanges, ViewChild, Query, AfterViewInit
 } from '@angular/core';
-import {MessageVM} from "../../server/view-model/message.vm";
 import * as _ from 'lodash';
+import {MessageVM} from "../../shared/view-model/message.vm";
 
 @Component({
     selector: 'message-list',

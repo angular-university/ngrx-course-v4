@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from "@angular/http";
-import {ThreadsVM} from "../../server/view-model/threads.vm";
 import {Observable} from "rxjs";
-import {ThreadDetailVM} from "../../server/view-model/thread-detail.vm";
 import {ParticipantService} from "./participant.service";
 import {xhrHeaders} from "./xhrHeaders";
+import {ThreadsVM} from "../../shared/view-model/threads.vm";
+import {ThreadDetailVM} from "../../shared/view-model/thread-detail.vm";
 
 
 @Injectable()

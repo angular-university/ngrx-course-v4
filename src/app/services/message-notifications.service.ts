@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {MessageVM} from "../../server/view-model/message.vm";
 import {Observable, BehaviorSubject} from "rxjs";
 import {Http} from "@angular/http";
 import {ParticipantService} from "./participant.service";
 import {xhrHeaders} from "./xhrHeaders";
+import {MessageVM} from "../../shared/view-model/message.vm";
 
 @Injectable()
 export class MessageNotificationsService {

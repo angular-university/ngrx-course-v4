@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {ThreadDetailVM} from "../../server/view-model/thread-detail.vm";
 import {Observable, BehaviorSubject} from "rxjs";
 import {ThreadsRestService} from "./threads-rest.service";
+import {ThreadDetailVM} from "../../shared/view-model/thread-detail.vm";
 
 
 

@@ -1,8 +1,8 @@
 
 import {Application} from 'express';
 import {dbThreads} from "../db/db-data";
-import {Thread} from "../model/thread";
 import * as _ from 'lodash';
+import {Thread} from "../../shared/model/thread";
 
 
 export function apiUpdateThread(app: Application) {

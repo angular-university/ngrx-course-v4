@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {CurrentThreadService} from "../services/current-thread.service";
 import {Observable} from "rxjs";
-import {ThreadDetailVM} from "../../server/view-model/thread-detail.vm";
 import {ThreadsRestService} from "../services/threads-rest.service";
 import {ParticipantService} from "../services/participant.service";
-import {Participant} from "../../server/model/participant";
-import {MessageVM} from "../../server/view-model/message.vm";
+
 import {MessageNotificationsService} from "../services/message-notifications.service";
+import {Participant} from "../../shared/model/participant";
+import {ThreadDetailVM} from "../../shared/view-model/thread-detail.vm";
+import {MessageVM} from "../../shared/view-model/message.vm";
 
 @Component({
     selector: 'message-section',
