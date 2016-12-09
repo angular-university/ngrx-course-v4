@@ -1,29 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as _ from 'lodash';
-import {Participant} from "../../shared/model/participant";
-import {ThreadsVM} from "../../shared/view-model/threads.vm";
+import {ApplicationState} from "../store/application-state";
+import {Store} from "@ngrx/store";
+import {mapStateToCurrentParticipantName} from "../store/mapping/mapStateToCurrentParticipantName";
 
 
 @Component({
-  selector: 'thread-section',
-  templateUrl: './thread-section.component.html',
-  styleUrls: ['./thread-section.component.css']
+    selector: 'thread-section',
+    templateUrl: './thread-section.component.html',
+    styleUrls: ['./thread-section.component.css']
 })
 export class ThreadSectionComponent implements OnInit {
 
 
-  constructor( ) {
-
-  }
-
-  ngOnInit() {
+    currentParticipantName: string;
 
 
+    constructor(private store: Store<ApplicationState>) {
 
-  }
+    }
 
 
-    onThreadSelected(threadId:number) {
+
+
+    ngOnInit() {
+
+        this.store.select(mapStateToCurrentParticipantName)
+            .subscribe(currentParticipantName => this.currentParticipantName = currentParticipantName);
+
+    }
+
+
+
+
+    onThreadSelected(threadId: number) {
 
     }
 

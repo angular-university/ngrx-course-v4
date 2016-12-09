@@ -8,7 +8,7 @@ import {Message} from "../../shared/model/message";
 
 export interface ApplicationState {
 
-    currentParticipantId: number;
+    userId: number;
 
     participants: {[key:number]:Participant};
 
@@ -17,4 +17,14 @@ export interface ApplicationState {
     messages: {[key:number]: Message};
 
 }
+
+
+
+export const INITIAL_APPLICATION_STATE: ApplicationState = {
+    userId: null,
+    participants: {},
+    threads: {},
+    messages: {}
+};
+
 
