@@ -6,7 +6,7 @@ import {Message} from "../../shared/model/message";
 
 
 
-export class ApplicationState {
+export interface ApplicationState {
 
     currentParticipantId: number;
 
@@ -17,3 +17,4 @@ export class ApplicationState {
     messages: {[key:number]: Message};
 
 }
+

@@ -12,6 +12,7 @@ import {ThreadsRestService} from "./services/threads-rest.service";
 import {ParticipantService} from "./services/participant.service";
 import { UserSelectionComponent } from './user-selection/user-selection.component';
 import {MessageNotificationsService} from "./services/message-notifications.service";
+import {StoreModule} from "@ngrx/store";
 
 
 
@@ -28,7 +29,8 @@ import {MessageNotificationsService} from "./services/message-notifications.serv
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+     StoreModule.provideStore({})
   ],
   providers: [
       ThreadsRestService,
