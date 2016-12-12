@@ -10,6 +10,10 @@ import {AllUserData} from "../../shared/model/all-user-data";
 export const GET_USER_INFO_ACTION = 'GET_USER_INFO_ACTION';
 export const LOAD_USER_THREADS_ACTION = 'LOAD_USER_THREADS_ACTION';
 export const SELECT_THREAD_ACTION = 'SELECT_THREAD_ACTION';
+export const MARK_THREAD_AS_READ_ACTION = 'MARK_THREAD_AS_READ_ACTION';
+export const SEND_NEW_MESSAGE_ACTION = 'SEND_NEW_MESSAGE_ACTION';
+export const RECEIVE_NEW_MESSAGEs_ACTION = 'RECEIVE_NEW_MESSAGE_ACTION';
+
 
 
 export class GetUserInfoAction implements Action {
@@ -43,3 +47,49 @@ export class SelectThreadAction implements Action {
     constructor(public payload: number) {}
 
 }
+
+
+export class MarkThreadAsReadAction implements Action {
+
+    readonly  type = MARK_THREAD_AS_READ_ACTION;
+
+    constructor(public payload: number) {
+
+    }
+
+}
+
+export class SendNewMessageAction implements Action {
+
+    readonly  type = SEND_NEW_MESSAGE_ACTION;
+
+    constructor(public payload: Message) {
+
+    }
+
+}
+
+
+export class ReceiveNewMessagesAction implements Action {
+
+    readonly  type = RECEIVE_NEW_MESSAGEs_ACTION;
+
+    constructor(public payload: Message[]) {
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
