@@ -11,7 +11,7 @@ export function findThreadsPerUser(participantId:number) {
 
     const allThreads: Thread[] = <any> _.values(dbThreads);
 
-    return _.filter(allThreads, thread =>  _.includes(<any>_.keys(thread.participants), participantId));
+    return _.filter(allThreads, thread =>  _.includes(<any>_.keys(thread.participants), participantId.toString()));
 }
 
 

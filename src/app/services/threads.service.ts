@@ -17,7 +17,7 @@ export class ThreadsService {
 
     constructor(private http:Http, private store: Store<ApplicationState>) {
 
-        store.select(state => this.userId = state.userId);
+        store.select(state => this.userId = state.userId).debug('new userId received ').subscribe();
 
     }
 
@@ -25,7 +25,7 @@ export class ThreadsService {
     loadUserThreads() : Observable<[Participant[], Thread[], Message[] ]> {
         return this.http.get('/api/threads', xhrHeaders(this.userId))
             .map(res => res.json().payload)
-            .map(payload => {return <any>[payload.threads, payload.messages]});
+            .map(payload => {return <any>[payload.participants, payload.threads, payload.messages]});
 
     }
 

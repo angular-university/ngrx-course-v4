@@ -24,6 +24,7 @@ export class ThreadSectionComponent implements OnInit {
     ngOnInit() {
 
         const name$ = this.store.select(mapStateToCurrentParticipantName)
+            .filter(name => !!name)
             .debug("Received new Participant Name");
 
         name$.subscribe(currentParticipantName => this.currentParticipantName = currentParticipantName);
