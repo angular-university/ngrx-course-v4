@@ -14,14 +14,14 @@ export function mapStateToMessageDetails(state: ApplicationState) : ThreadDetail
 
     const thread = currentThread(state);
 
-    const participantNames = thread ? buildParticipantNames(thread,state.participants) : '';
+    const participantNames = thread ? buildParticipantNames(thread,state.storeData.participants) : '';
 
-    const messages = messagesForThread(state, state.currentThreadId);
+    const messages = messagesForThread(state, state.uiState.currentThreadId);
 
     return {
-        id: state.currentThreadId,
+        id: state.uiState.currentThreadId,
         participantNames,
-        messages: messages.map(message => buildMessageVmFromMessage(message, state.participants))
+        messages: messages.map(message => buildMessageVmFromMessage(message, state.storeData.participants))
     }
 
 }

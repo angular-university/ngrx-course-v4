@@ -8,7 +8,7 @@ import { MessageSectionComponent } from './message-section/message-section.compo
 import { ThreadListComponent } from './thread-list/thread-list.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { UserSelectionComponent } from './user-selection/user-selection.component';
-import {StoreModule, ActionReducer} from "@ngrx/store";
+import {StoreModule, ActionReducer, combineReducers} from "@ngrx/store";
 import {ApplicationState, INITIAL_APPLICATION_STATE} from "./store/application-state";
 import {GET_USER_INFO_ACTION, LOAD_USER_THREADS_ACTION, SELECT_THREAD_ACTION} from "./store/actions";
 import {Participant} from "../shared/model/participant";
@@ -16,47 +16,13 @@ import {ParticipantsService} from "./services/participants.service";
 import {ThreadsService} from "./services/threads.service";
 import {Thread} from "../shared/model/thread";
 import {AllUserData} from "../shared/model/all-user-data";
+import {uiState} from "./store/reducers/uiState";
+import {storeData} from "./store/reducers/storeData";
 
 
 
 
 
-const applicationStateReducer: ActionReducer<ApplicationState> = (state = INITIAL_APPLICATION_STATE, action) => {
-
-
-    switch(action.type) {
-
-        case GET_USER_INFO_ACTION:
-            const participant: Participant = action.payload;
-
-            const clonedParticipants = Object.assign({}, state.participants);
-
-            clonedParticipants[participant.id] = participant;
-
-            return Object.assign({}, state,  {
-
-                userId: participant.id,
-                participants: clonedParticipants
-
-            });
-
-        case LOAD_USER_THREADS_ACTION:
-
-            const {participants, threads, messages}: AllUserData = action.payload;
-
-            const userData:any = {};
-
-            return Object.assign({}, state,  {participants, threads, messages});
-
-        case SELECT_THREAD_ACTION:
-
-            const currentThreadId = action.payload;
-
-            return Object.assign({}, state,  {currentThreadId});
-    }
-
-    return state;
-};
 
 
 
@@ -73,7 +39,7 @@ const applicationStateReducer: ActionReducer<ApplicationState> = (state = INITIA
     BrowserModule,
     FormsModule,
     HttpModule,
-     StoreModule.provideStore(applicationStateReducer)
+     StoreModule.provideStore(combineReducers({uiState, storeData}))
   ],
   providers: [ParticipantsService, ThreadsService],
   bootstrap: [AppComponent]

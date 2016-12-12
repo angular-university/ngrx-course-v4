@@ -15,7 +15,7 @@ export class ThreadsService {
 
     constructor(private http:Http, private store: Store<ApplicationState>) {
 
-        store.select(state => this.userId = state.userId).debug('new userId received ').subscribe();
+        store.select(state => this.userId = state.uiState.userId).debug('new userId received ').subscribe();
 
     }
 

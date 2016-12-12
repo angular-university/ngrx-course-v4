@@ -1,7 +1,7 @@
 
 
 import {Application} from 'express';
-import {dbMessagesQueuePerUser, dbMessages} from "../db/db-data";
+import {dbMessagesQueuePerUser, dbMessages, dbParticipants} from "../db/db-data";
 import {buildMessageVmFromMessage} from "../../shared/model/buildMessageVmFromMessage";
 
 
@@ -26,7 +26,7 @@ export function apiMessageNotificationsPerUser(app: Application) {
 
         messageIdsQueuedForUser.forEach(messageId => {
 
-            messagesQueued.push(buildMessageVmFromMessage(dbMessages[messageId]));
+            messagesQueued.push(buildMessageVmFromMessage(dbMessages[messageId], dbParticipants));
 
         });
 

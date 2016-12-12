@@ -13,16 +13,16 @@ import {Message} from "../../../shared/model/message";
 
 export function mapStateToThreadSummariesAndCounter(state: ApplicationState): ThreadsVM {
 
-    const unreadThreadsCounter = findUnreadThreadsCountPerUser(<any>_.values(state.threads), state.userId);
+    const unreadThreadsCounter = findUnreadThreadsCountPerUser(<any>_.values(state.storeData.threads), state.uiState.userId);
 
-    const threads: Thread[] = <any>_.values(state.threads);
+    const threads: Thread[] = <any>_.values(state.storeData.threads);
 
-    const messages: Message[] =  <any>_.values(state.messages);
+    const messages: Message[] =  <any>_.values(state.storeData.messages);
 
     return {
         unreadThreadsCounter,
         threadSummaries: threads.map(
-            thread => mapThreadToThreadSummary(state.userId, messages, thread)
+            thread => mapThreadToThreadSummary(state.uiState.userId, messages, thread)
         )
     }
 
