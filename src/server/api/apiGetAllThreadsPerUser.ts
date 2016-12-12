@@ -7,6 +7,7 @@ import {ThreadsVM} from "../../shared/view-model/threads.vm";
 import {Message} from "../../shared/model/message";
 import {UserThreadSummaryVM} from "../../shared/view-model/user-thread-summary.vm";
 import {buildParticipantNames} from "../../shared/model/buildParticipantNames";
+import {findThreadsPerUser} from "./findThreadsPerUser";
 
 
 
@@ -17,9 +18,7 @@ export function apiGetAllThreadsPerUser(app: Application) {
 
         const participantId = req.headers['participantid'];
 
-        const allThreads: Thread[] = <any> _.values(dbThreads);
-
-        const threadsPerUser = _.filter(allThreads, thread =>  _.includes(<any>_.keys(thread.participants), participantId));
+        const threadsPerUser = findThreadsPerUser(parseInt(participantId));
 
         const unreadThreads = _.reduce(threadsPerUser,
             (acc, thread) => {

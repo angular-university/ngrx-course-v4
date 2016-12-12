@@ -13,6 +13,7 @@ import {ApplicationState, INITIAL_APPLICATION_STATE} from "./store/application-s
 import {GET_USER_INFO_ACTION} from "./store/actions";
 import {Participant} from "../shared/model/participant";
 import {ParticipantsService} from "./services/participants.service";
+import {ThreadsService} from "./services/threads.service";
 
 
 
@@ -58,7 +59,7 @@ const applicationStateReducer: ActionReducer<ApplicationState> = (state = INITIA
     HttpModule,
      StoreModule.provideStore(applicationStateReducer)
   ],
-  providers: [ParticipantsService],
+  providers: [ParticipantsService, ThreadsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
