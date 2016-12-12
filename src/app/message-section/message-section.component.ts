@@ -26,6 +26,8 @@ export class MessageSectionComponent implements OnInit {
 
         this.store
             .select(mapStateToMessageDetails)
+            .filter(thread => !!thread.id)
+            .debug("Thread Detail loaded")
             .subscribe(currentThreadVM => this.currentThreadVM = currentThreadVM);
 
     }
