@@ -5,6 +5,7 @@ import {Message} from "../model/message";
 import {Thread} from "../model/thread";
 import {buildParticipantNames} from "../model/buildParticipantNames";
 import * as _ from 'lodash';
+import {dbParticipants} from "../../server/db/db-data";
 
 
 export function mapThreadToThreadSummary(participantId:number , messages: Message[], thread: Thread): UserThreadSummaryVM {
@@ -15,7 +16,7 @@ export function mapThreadToThreadSummary(participantId:number , messages: Messag
 
     return {
         id: thread.id,
-        participantNames: buildParticipantNames(thread),
+        participantNames: buildParticipantNames(thread, dbParticipants),
         timestamp: lastMessage.timestamp,
         lastMessage: lastMessage.text,
         read: thread.participants[participantId]

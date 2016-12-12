@@ -1,9 +1,9 @@
 <div class="message-section" *ngIf="participant">
 
-    <h3 class="message-thread-heading">{{currentThread?.participantNames}}</h3>
+    <h3 class="message-thread-heading">{{currentThreadVM?.participantNames}}</h3>
 
-    <message-list [messages]="currentThread?.messages"></message-list>
+    <message-list [messages]="currentThreadVM?.messages"></message-list>
 
-    <textarea *ngIf="currentThread" class="message-composer" name="message" (keyup.enter)="onNewMessage(input)" #input></textarea>
+    <textarea *ngIf="currentThreadVM" class="message-composer" name="message" (keyup.enter)="onNewMessage(input)" #input></textarea>
 
 </div>

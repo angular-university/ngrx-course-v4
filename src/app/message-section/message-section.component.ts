@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Participant} from "../../shared/model/participant";
+import {ApplicationState} from "../store/application-state";
+import {Store} from "@ngrx/store";
+import {ThreadDetailVM} from "../../shared/view-model/thread-detail.vm";
+import {mapStateToMessageDetails} from "../store/mapping/mapStateToMessageDetails";
 
 @Component({
     selector: 'message-section',
@@ -9,17 +13,23 @@ import {Participant} from "../../shared/model/participant";
 })
 export class MessageSectionComponent implements OnInit {
 
+    currentThreadVM: ThreadDetailVM;
 
-    constructor() {
+
+    constructor(private store: Store<ApplicationState>) {
 
     }
+
 
 
     ngOnInit() {
 
-
+        this.store
+            .select(mapStateToMessageDetails)
+            .subscribe(currentThreadVM => this.currentThreadVM = currentThreadVM);
 
     }
+
 
 
     onNewMessage(input:any) {

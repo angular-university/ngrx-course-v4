@@ -4,7 +4,7 @@ import {ApplicationState} from "../store/application-state";
 import {Store} from "@ngrx/store";
 import {mapStateToCurrentParticipantName} from "../store/mapping/mapStateToCurrentParticipantName";
 import {ThreadsService} from "../services/threads.service";
-import {LoadUserThreadsAction} from "../store/actions";
+import {LoadUserThreadsAction, SelectThreadAction} from "../store/actions";
 import {ThreadsVM} from "../../shared/view-model/threads.vm";
 import {mapStateToThreadSummariesAndCounter} from "../store/mapping/mapStateToThreadSummariesAndCounter";
 
@@ -47,6 +47,8 @@ export class ThreadSectionComponent implements OnInit {
 
 
     onThreadSelected(threadId: number) {
+
+        this.store.dispatch(new SelectThreadAction(threadId));
 
     }
 

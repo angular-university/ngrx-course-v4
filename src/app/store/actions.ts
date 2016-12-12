@@ -9,7 +9,7 @@ import {AllUserData} from "../../shared/model/all-user-data";
 
 export const GET_USER_INFO_ACTION = 'GET_USER_INFO_ACTION';
 export const LOAD_USER_THREADS_ACTION = 'LOAD_USER_THREADS_ACTION';
-
+export const SELECT_THREAD_ACTION = 'SELECT_THREAD_ACTION';
 
 
 export class GetUserInfoAction implements Action {
@@ -32,5 +32,14 @@ export class LoadUserThreadsAction implements Action {
     constructor(public payload: AllUserData) {
 
     }
+
+}
+
+
+export class SelectThreadAction implements Action {
+
+    readonly type = SELECT_THREAD_ACTION;
+
+    constructor(public payload: number) {}
 
 }

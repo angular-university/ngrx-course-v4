@@ -16,6 +16,8 @@ export interface ApplicationState {
 
     messages: {[key:number]: Message};
 
+    currentThreadId: number;
+
 }
 
 
@@ -24,7 +26,11 @@ export const INITIAL_APPLICATION_STATE: ApplicationState = {
     userId: null,
     participants: {},
     threads: {},
-    messages: {}
+    messages: {},
+    currentThreadId: null
 };
 
 
+export function currentThread(state: ApplicationState) :Thread {
+    return state.threads && state.threads[state.currentThreadId] ? state.threads[state.currentThreadId] : null;
+}

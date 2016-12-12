@@ -10,7 +10,7 @@ import { MessageListComponent } from './message-list/message-list.component';
 import { UserSelectionComponent } from './user-selection/user-selection.component';
 import {StoreModule, ActionReducer} from "@ngrx/store";
 import {ApplicationState, INITIAL_APPLICATION_STATE} from "./store/application-state";
-import {GET_USER_INFO_ACTION, LOAD_USER_THREADS_ACTION} from "./store/actions";
+import {GET_USER_INFO_ACTION, LOAD_USER_THREADS_ACTION, SELECT_THREAD_ACTION} from "./store/actions";
 import {Participant} from "../shared/model/participant";
 import {ParticipantsService} from "./services/participants.service";
 import {ThreadsService} from "./services/threads.service";
@@ -48,6 +48,11 @@ const applicationStateReducer: ActionReducer<ApplicationState> = (state = INITIA
 
             return Object.assign({}, state,  {participants, threads, messages});
 
+        case SELECT_THREAD_ACTION:
+
+            const currentThreadId = action.payload;
+
+            return Object.assign({}, state,  {currentThreadId});
     }
 
     return state;
