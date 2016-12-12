@@ -4,6 +4,7 @@ import {Action} from "@ngrx/store";
 import {Participant} from "../../shared/model/participant";
 import {Message} from "../../shared/model/message";
 import {Thread} from "../../shared/model/thread";
+import {AllUserData} from "../../shared/model/all-user-data";
 
 
 export const GET_USER_INFO_ACTION = 'GET_USER_INFO_ACTION';
@@ -28,7 +29,7 @@ export class LoadUserThreadsAction implements Action {
 
     readonly type = LOAD_USER_THREADS_ACTION;
 
-    constructor(public payload: [Thread[], Message[]]) {
+    constructor(public payload: AllUserData) {
 
     }
 

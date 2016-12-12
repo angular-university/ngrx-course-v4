@@ -4,10 +4,10 @@
         <span>
             <span><h3>User {{currentParticipantName}} </h3></span>
             <span>Unread threads:</span>
-            <span>{{threads?.unreadThreadsCounter}}</span>
+            <span>{{threadsVM?.unreadThreadsCounter}}</span>
         </span>
     </div>
 
-    <thread-list [threads]="threads?.threadSummaries" (threadSelected)="onThreadSelected($event)" [currentSelectedThreadId]="currentSelectedThreadId"></thread-list>
+    <thread-list [threads]="threadsVM?.threadSummaries" (threadSelected)="onThreadSelected($event)" [currentSelectedThreadId]="currentSelectedThreadId"></thread-list>
 
 </div>

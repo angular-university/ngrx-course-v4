@@ -3,13 +3,12 @@
 
 
 import {Thread} from "../../shared/model/thread";
-import {dbThreads} from "../db/db-data";
 import * as _ from 'lodash';
 
 
-export function findThreadsPerUser(participantId:number) {
+export function findThreadsPerUser(threads: {[key:number]:Thread}, participantId:number) {
 
-    const allThreads: Thread[] = <any> _.values(dbThreads);
+    const allThreads: Thread[] = <any> _.values(threads);
 
     return _.filter(allThreads, thread =>  _.includes(<any>_.keys(thread.participants), participantId.toString()));
 }

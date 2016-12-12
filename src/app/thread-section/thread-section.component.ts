@@ -4,6 +4,9 @@ import {ApplicationState} from "../store/application-state";
 import {Store} from "@ngrx/store";
 import {mapStateToCurrentParticipantName} from "../store/mapping/mapStateToCurrentParticipantName";
 import {ThreadsService} from "../services/threads.service";
+import {LoadUserThreadsAction} from "../store/actions";
+import {ThreadsVM} from "../../shared/view-model/threads.vm";
+import {mapStateToThreadSummariesAndCounter} from "../store/mapping/mapStateToThreadSummariesAndCounter";
 
 
 @Component({
@@ -14,6 +17,7 @@ import {ThreadsService} from "../services/threads.service";
 export class ThreadSectionComponent implements OnInit {
 
     currentParticipantName: string;
+    threadsVM: ThreadsVM;
 
 
     constructor(private store: Store<ApplicationState>, private threadsService: ThreadsService) {
@@ -31,14 +35,15 @@ export class ThreadSectionComponent implements OnInit {
 
         name$.mergeMap(() =>  this.threadsService.loadUserThreads() )
             .subscribe(
-                console.log
-                // threads => this.store.dispatch(threads)
+                 payload => this.store.dispatch(new LoadUserThreadsAction(payload))
+            );
+
+        this.store.select(mapStateToThreadSummariesAndCounter)
+            .subscribe(
+                threadsVM => this.threadsVM = threadsVM
             );
 
     }
-
-
-
 
 
     onThreadSelected(threadId: number) {

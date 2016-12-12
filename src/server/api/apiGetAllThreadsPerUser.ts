@@ -1,13 +1,12 @@
 import {Application} from 'express';
 
 import * as _ from 'lodash';
-import {dbThreads, dbParticipants, dbMessages} from "../db/db-data";
-import {Thread} from "../../shared/model/thread";
+import {dbThreads, dbMessages} from "../db/db-data";
 import {ThreadsVM} from "../../shared/view-model/threads.vm";
 import {Message} from "../../shared/model/message";
-import {UserThreadSummaryVM} from "../../shared/view-model/user-thread-summary.vm";
-import {buildParticipantNames} from "../../shared/model/buildParticipantNames";
 import {findThreadsPerUser} from "./findThreadsPerUser";
+import {mapThreadToThreadSummary} from "../../shared/mapping/mapThreadToThreadSummary";
+import {findUnreadThreadsCountPerUser} from "../../shared/model/findUnreadThreadsCountPerUser";
 
 
 
@@ -16,22 +15,17 @@ export function apiGetAllThreadsPerUser(app: Application) {
 
     app.route('/api/threads-vm').get((req, res) => {
 
-        const participantId = req.headers['participantid'];
+        const participantId = parseInt(req.headers['participantid']);
 
-        const threadsPerUser = findThreadsPerUser(parseInt(participantId));
+        const threadsPerUser = findThreadsPerUser(dbThreads, participantId);
 
-        const unreadThreads = _.reduce(threadsPerUser,
-            (acc, thread) => {
+        const unreadThreads = findUnreadThreadsCountPerUser(threadsPerUser, participantId);
 
-            if (!thread.participants[participantId]) {
-                acc++;
-            }
-            return acc;
-        }, 0);
+        const messages: Message[] =  <any>_.values(dbMessages);
 
         const threadsVm: ThreadsVM = {
             unreadThreadsCounter: unreadThreads,
-            threadSummaries: <any>threadsPerUser.map(_.partial(mapThreadToThreadSummary, participantId))
+            threadSummaries: threadsPerUser.map(_.partial(mapThreadToThreadSummary, participantId, messages))
         };
 
         res.status(200).json({payload: threadsVm});
@@ -41,23 +35,5 @@ export function apiGetAllThreadsPerUser(app: Application) {
 }
 
 
-function mapThreadToThreadSummary(participantId:string, thread: Thread): UserThreadSummaryVM {
-
-    const messages: Message[] =  <any>_.values(dbMessages);
-
-    const messagesPerThread = _.chain(messages).filter(msg => msg.threadId == thread.id).orderBy(msg => msg.id).value();
-
-    const lastMessage: Message = _.last(messagesPerThread);
-
-    return {
-        id: thread.id,
-        participantNames: buildParticipantNames(thread),
-        timestamp: lastMessage.timestamp,
-        lastMessage: lastMessage.text,
-        read: thread.participants[participantId]
-    };
-
-
-}
 
 
