@@ -2,7 +2,7 @@
 import {Participant} from "../../shared/model/participant";
 import {Thread} from "../../shared/model/thread";
 import {Message} from "../../shared/model/message";
-
+import * as _ from 'lodash';
 
 
 
@@ -34,3 +34,11 @@ export const INITIAL_APPLICATION_STATE: ApplicationState = {
 export function currentThread(state: ApplicationState) :Thread {
     return state.threads && state.threads[state.currentThreadId] ? state.threads[state.currentThreadId] : null;
 }
+
+
+
+export function messagesForThread(state:ApplicationState, threadId:number): Message[] {
+    return _.filter(<any>_.values(state.messages), (message:Message) => message.threadId == threadId);
+}
+
+

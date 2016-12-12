@@ -2,15 +2,15 @@
 
 
 import {MessageVM} from "../view-model/message.vm";
-import {dbParticipants} from "../../server/db/db-data";
+import {Participant} from "./participant";
 
 
 
 
-export function buildMessageVmFromMessage({id,participantId, timestamp, text, threadId}): MessageVM {
+export function buildMessageVmFromMessage({id,participantId, timestamp, text, threadId}, participants: {[key:number]:Participant}): MessageVM {
     return {
         id,
-        participantName: dbParticipants[participantId].name,
+        participantName: participants[participantId].name,
         timestamp,
         text,
         threadId
