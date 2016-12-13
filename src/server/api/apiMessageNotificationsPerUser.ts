@@ -26,7 +26,7 @@ export function apiMessageNotificationsPerUser(app: Application) {
 
         messageIdsQueuedForUser.forEach(messageId => {
 
-            messagesQueued.push(buildMessageVmFromMessage(dbMessages[messageId], dbParticipants));
+            messagesQueued.push(dbMessages[messageId]);
 
         });
 

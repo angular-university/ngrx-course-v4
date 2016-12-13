@@ -23,7 +23,7 @@ export class ThreadsService {
             .subscribe();
 
 
-        setInterval(this.onNewMessagesReceived, 5000);
+        setInterval(this.onNewMessagesReceived.bind(this), 3000);
 
 
     }
@@ -31,14 +31,17 @@ export class ThreadsService {
 
     onNewMessagesReceived() {
 
-        this.http.post('/api/notifications/messages', xhrHeaders(this.userId))
-            .map(res => res.json().payload)
-            .subscribe(
-                (messages: Message[]) => {
-                    this.store.dispatch(new ReceiveNewMessagesAction(messages));
-                }
-            );
-
+        if (this.userId) {
+            this.http.post('/api/notifications/messages', null, xhrHeaders(this.userId))
+                .map(res => res.json().payload)
+                .subscribe(
+                    (messages: Message[]) => {
+                        if (messages && messages.length > 0) {
+                            this.store.dispatch(new ReceiveNewMessagesAction(messages));
+                        }
+                    }
+                );
+        }
 
     }
 
