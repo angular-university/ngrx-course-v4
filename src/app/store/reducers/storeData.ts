@@ -61,8 +61,6 @@ export function storeData(state = INITIAL_STORE_DATA, action): StoreData {
     }
 
     return state;
-
-
 }
 
 
@@ -94,15 +92,11 @@ export function receiveNewMessagesAction(state: StoreData ,action: ReceiveNewMes
             newStoreData.messages[message.id] = message;
             newStoreData.threads[message.threadId].messageIds.push(message.threadId);
 
-            const participantIds = _.keys(newStoreData.threads[message.threadId].participants);
+            const participantIds = _.keys(newStoreData.threads[message.threadId].participants).map(id => parseInt(id));
 
-            const otherParticipants = participantIds
-                .filter(participantId =>  parseInt(participantId) !== message.participantId );
-
-            otherParticipants.forEach(
-                participantId => newStoreData.threads[message.threadId].participants[participantId] = false
-            );
-
+            if (message.threadId !== action.currentThreadId) {
+                newStoreData.threads[message.threadId].participants[action.currentUserId] = false;
+            }
     });
 
     return newStoreData;

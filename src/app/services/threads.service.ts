@@ -34,10 +34,11 @@ export class ThreadsService {
         if (this.userId) {
             this.http.post('/api/notifications/messages', null, xhrHeaders(this.userId))
                 .map(res => res.json().payload)
+                .withLatestFrom(this.store.select("uiState"))
                 .subscribe(
-                    (messages: Message[]) => {
+                    ([messages, uiState]) => {
                         if (messages && messages.length > 0) {
-                            this.store.dispatch(new ReceiveNewMessagesAction(messages));
+                            this.store.dispatch(new ReceiveNewMessagesAction(messages, this.userId, uiState.currentThreadId));
                         }
                     }
                 );

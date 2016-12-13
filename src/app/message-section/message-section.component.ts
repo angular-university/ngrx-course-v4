@@ -1,13 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {Participant} from "../../shared/model/participant";
 import {ApplicationState} from "../store/application-state";
 import {Store} from "@ngrx/store";
 import {ThreadDetailVM} from "../../shared/view-model/thread-detail.vm";
 import {mapStateToMessageDetails} from "../store/mapping/mapStateToMessageDetails";
 import {ThreadsService} from "../services/threads.service";
-import {Message} from "../../shared/model/message";
-import {UiState} from "../store/ui-state";
 import {WriteNewMessageAction} from "../store/actions";
 
 @Component({
@@ -19,14 +15,9 @@ export class MessageSectionComponent implements OnInit {
 
     currentThreadVM: ThreadDetailVM;
 
-
-
-
     constructor(private store: Store<ApplicationState>, private threadsService: ThreadsService) {
 
     }
-
-
 
     ngOnInit() {
 
@@ -38,7 +29,6 @@ export class MessageSectionComponent implements OnInit {
                 this.currentThreadVM = currentThreadVM;
             })
             .subscribe();
-
     }
 
 
@@ -51,7 +41,6 @@ export class MessageSectionComponent implements OnInit {
             );
 
         input.value = '';
-
     }
 
 

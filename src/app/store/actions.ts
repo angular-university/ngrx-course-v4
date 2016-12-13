@@ -57,7 +57,7 @@ export class SelectThreadAction implements Action {
 
 export class WriteNewMessageAction implements Action {
 
-    readonly  type = WRITE_NEW_MESSAGE_ACTION;
+    readonly type = WRITE_NEW_MESSAGE_ACTION;
 
     constructor(public payload: Message) {
 
@@ -68,9 +68,9 @@ export class WriteNewMessageAction implements Action {
 
 export class ReceiveNewMessagesAction implements Action {
 
-    readonly  type = RECEIVE_NEW_MESSAGES_ACTION;
+    readonly type = RECEIVE_NEW_MESSAGES_ACTION;
 
-    constructor(public payload: Message[]) {
+    constructor(public payload: Message[], public currentUserId:number, public currentThreadId:number) {
 
     }
 
