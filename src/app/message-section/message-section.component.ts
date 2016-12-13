@@ -17,8 +17,6 @@ import {WriteNewMessageAction} from "../store/actions";
 })
 export class MessageSectionComponent implements OnInit {
 
-
-    currentUserId: number;
     currentThreadVM: ThreadDetailVM;
 
 
@@ -32,16 +30,10 @@ export class MessageSectionComponent implements OnInit {
 
     ngOnInit() {
 
-        this.store.select("uiState")
-            .subscribe(
-                (uiState:UiState) => this.currentUserId = uiState.userId
-            );
-
         const threadDetail$ = this.store
             .select(mapStateToMessageDetails)
             .filter(thread => !!thread.id)
             .debug("Thread Detail loaded");
-
 
         threadDetail$
             .do(currentThreadVM => {
@@ -57,11 +49,15 @@ export class MessageSectionComponent implements OnInit {
 
 
     onNewMessage(input:any) {
-        this.threadsService.saveNewMessage(this.currentThreadVM.id, this.currentUserId, input.value)
+
+        this.threadsService.saveNewMessage(this.currentThreadVM.id,  input.value)
             .subscribe(
                 message => this.store.dispatch(new WriteNewMessageAction(message)),
                 console.error
             );
+
+        input.value = '';
+
     }
 
 

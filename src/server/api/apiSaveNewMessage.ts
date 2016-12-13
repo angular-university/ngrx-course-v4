@@ -12,18 +12,20 @@ let messageIdCounter = 20;
 
 export function apiSaveNewMessage(app: Application) {
 
-    app.route('/api/threads').post((req, res) => {
+    app.route('/api/threads/:id').post((req, res) => {
 
         const payload = req.body;
 
-        const threadId = parseInt(payload.threadId),
+        const threadId = parseInt(req.params.id),
             participantId = parseInt(req.headers['participantid']);
+
+        console.log("threadId", threadId);
 
         const message: Message = {
             id: messageIdCounter++,
             threadId,
             timestamp: new Date().getTime(),
-            text: payload.message,
+            text: payload.messageText,
             participantId
         };
 

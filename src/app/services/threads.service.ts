@@ -32,8 +32,8 @@ export class ThreadsService {
     }
 
 
-    saveNewMessage(threadId: number, currentUserId: number, messageText: string): Observable<Message> {
-        return this.http.post(`/api/threads/${threadId}`, JSON.stringify({read:true}), xhrHeaders(this.userId))
+    saveNewMessage(threadId: number,  messageText: string): Observable<Message> {
+        return this.http.post(`/api/threads/${threadId}`, JSON.stringify({messageText}), xhrHeaders(this.userId))
             .map(res => res.json().payload);
     }
 

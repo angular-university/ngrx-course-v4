@@ -1,10 +1,10 @@
 
 
-import {INITIAL_APPLICATION_STATE} from "../application-state";
 import {StoreData, INITIAL_STORE_DATA} from "../store-data";
 import {
     GET_USER_INFO_ACTION, LOAD_USER_THREADS_ACTION,
-    WRITE_NEW_MESSAGE_ACTION, RECEIVE_NEW_MESSAGES_ACTION, SELECT_THREAD_ACTION, SelectThreadActionPayload
+    WRITE_NEW_MESSAGE_ACTION, RECEIVE_NEW_MESSAGES_ACTION, SELECT_THREAD_ACTION, SelectThreadActionPayload,
+    WriteNewMessageAction
 } from "../actions";
 import {Participant} from "../../../shared/model/participant";
 import {AllUserData} from "../../../shared/model/all-user-data";
@@ -50,6 +50,8 @@ export function storeData(state = INITIAL_STORE_DATA, action): StoreData {
 
         case WRITE_NEW_MESSAGE_ACTION:
 
+            return writeNewMessageAction(state, action);
+
 
         case RECEIVE_NEW_MESSAGES_ACTION:
 
@@ -59,3 +61,21 @@ export function storeData(state = INITIAL_STORE_DATA, action): StoreData {
 
 
 }
+
+
+export function writeNewMessageAction(state: StoreData ,action: WriteNewMessageAction): StoreData {
+
+    const newStoreData: StoreData = Object.assign({}, state);
+
+    const newMessage = action.payload;
+
+    newStoreData.messages[newMessage.id] = newMessage;
+    newStoreData.threads[newMessage.threadId].messageIds.push(newMessage.id);
+
+    return newStoreData;
+}
+
+
+
+
+
