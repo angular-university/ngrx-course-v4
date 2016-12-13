@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import * as _ from 'lodash';
 import {ApplicationState} from "../store/application-state";
 import {Store} from "@ngrx/store";
-import {mapStateToCurrentParticipantName} from "../store/mapping/mapStateToCurrentParticipantName";
 import {ThreadsService} from "../services/threads.service";
 import {LoadUserThreadsAction, SelectThreadAction} from "../store/actions";
 import {ThreadsVM} from "../../shared/view-model/threads.vm";
@@ -16,6 +15,7 @@ import {mapStateToThreadSummariesAndCounter} from "../store/mapping/mapStateToTh
 })
 export class ThreadSectionComponent implements OnInit {
 
+    currentUserId: number;
     currentParticipantName: string;
     threadsVM: ThreadsVM;
 
@@ -27,18 +27,24 @@ export class ThreadSectionComponent implements OnInit {
 
     ngOnInit() {
 
-        const name$ = this.store.select(mapStateToCurrentParticipantName)
-            .filter(name => !!name)
-            .debug("Received new Participant Name");
+        const state$ = this.store.skip(1);
 
-        name$.subscribe(currentParticipantName => this.currentParticipantName = currentParticipantName);
 
-        name$.mergeMap(() =>  this.threadsService.loadUserThreads() )
+        state$
+            .filter( state => state.uiState.userId != this.currentUserId )
+            .do(state => {
+                if (state.uiState.userId) {
+                    this.currentUserId = state.uiState.userId;
+                    this.currentParticipantName = state.storeData.participants[this.currentUserId].name;
+                }
+            })
+            .mergeMap( () =>  this.threadsService.loadUserThreads() )
             .subscribe(
                  payload => this.store.dispatch(new LoadUserThreadsAction(payload))
             );
 
-        this.store.select(mapStateToThreadSummariesAndCounter)
+        this.store
+            .select(mapStateToThreadSummariesAndCounter)
             .subscribe(
                 threadsVM => this.threadsVM = threadsVM
             );
@@ -46,9 +52,10 @@ export class ThreadSectionComponent implements OnInit {
     }
 
 
+
     onThreadSelected(threadId: number) {
 
-        this.store.dispatch(new SelectThreadAction(threadId));
+        this.store.dispatch(new SelectThreadAction({threadId: threadId, userId:this.currentUserId}));
 
     }
 

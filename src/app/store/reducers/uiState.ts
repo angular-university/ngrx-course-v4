@@ -18,13 +18,17 @@ export function uiState(state = INITIAL_UI_STATE, action): UiState {
 
             const participant: Participant = action.payload;
 
+            if (!participant) {
+                return state;
+            }
+
             return Object.assign({}, state,  {
                 userId: participant.id
             });
 
         case SELECT_THREAD_ACTION:
 
-            const currentThreadId = action.payload;
+            const currentThreadId = action.payload.threadId;
 
             return Object.assign({}, state,  {currentThreadId});
     }

@@ -12,7 +12,7 @@ let messageIdCounter = 20;
 
 export function apiSaveNewMessage(app: Application) {
 
-    app.route('/api/threads-vm').post((req, res) => {
+    app.route('/api/threads').post((req, res) => {
 
         const payload = req.body;
 
@@ -44,7 +44,7 @@ export function apiSaveNewMessage(app: Application) {
 
         thread.participants[participantId] = true;
 
-        res.status(200).send();
+        res.status(200).json({payload:message});
 
     });
 

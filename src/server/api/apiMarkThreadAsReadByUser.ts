@@ -7,7 +7,7 @@ import {Thread} from "../../shared/model/thread";
 
 export function apiUpdateThread(app: Application) {
 
-    app.route('/api/threads-vm/:id').patch((req, res) => {
+    app.route('/api/threads/:id').patch((req, res) => {
 
         const participantId = req.headers['participantid'];
 
