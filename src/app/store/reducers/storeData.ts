@@ -9,7 +9,7 @@ import {
 import {Participant} from "../../../shared/model/participant";
 import {AllUserData} from "../../../shared/model/all-user-data";
 import {Message} from "../../../shared/model/message";
-
+import * as _ from 'lodash';
 
 
 export function storeData(state = INITIAL_STORE_DATA, action): StoreData {
@@ -93,6 +93,16 @@ export function receiveNewMessagesAction(state: StoreData ,action: ReceiveNewMes
         message => {
             newStoreData.messages[message.id] = message;
             newStoreData.threads[message.threadId].messageIds.push(message.threadId);
+
+            const participantIds = _.keys(newStoreData.threads[message.threadId].participants);
+
+            const otherParticipants = participantIds
+                .filter(participantId =>  parseInt(participantId) !== message.participantId );
+
+            otherParticipants.forEach(
+                participantId => newStoreData.threads[message.threadId].participants[participantId] = false
+            );
+
     });
 
     return newStoreData;
