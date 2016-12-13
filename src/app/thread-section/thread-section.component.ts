@@ -65,13 +65,15 @@ export class ThreadSectionComponent implements OnInit {
 
 
     onThreadSelected(threadId:number) {
-        if (this.threads.unreadThreadsCounter > 0) {
-            const threadSummary = _.find(this.threads.threadSummaries, thread => thread.id === threadId);
-            threadSummary.read = true;
-            this.threads.unreadThreadsCounter--;
+        if (this.currentSelectedThreadId !=  threadId) {
+            if (this.threads.unreadThreadsCounter > 0) {
+                const threadSummary = _.find(this.threads.threadSummaries, thread => thread.id === threadId);
+                threadSummary.read = true;
+                this.threads.unreadThreadsCounter--;
+            }
+            this.currentSelectedThreadId = threadId;
+            this.currentThreadService.selectThread(threadId);
         }
-        this.currentSelectedThreadId = threadId;
-        this.currentThreadService.selectThread(threadId);
     }
 
 
