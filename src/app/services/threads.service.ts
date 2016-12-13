@@ -6,6 +6,7 @@ import {ApplicationState} from "../store/application-state";
 import {Store} from "@ngrx/store";
 import {AllUserData} from "../../shared/model/all-user-data";
 import {Message} from "../../shared/model/message";
+import {ReceiveNewMessagesAction} from "../store/actions";
 
 
 @Injectable()
@@ -16,7 +17,28 @@ export class ThreadsService {
 
     constructor(private http:Http, private store: Store<ApplicationState>) {
 
-        store.select(state => this.userId = state.uiState.userId).debug('new userId received ').subscribe();
+        store
+            .select(state => this.userId = state.uiState.userId)
+            .debug('new userId received ')
+            .subscribe();
+
+
+        setInterval(this.onNewMessagesReceived, 5000);
+
+
+    }
+
+
+    onNewMessagesReceived() {
+
+        this.http.post('/api/notifications/messages', xhrHeaders(this.userId))
+            .map(res => res.json().payload)
+            .subscribe(
+                (messages: Message[]) => {
+                    this.store.dispatch(new ReceiveNewMessagesAction(messages));
+                }
+            );
+
 
     }
 
