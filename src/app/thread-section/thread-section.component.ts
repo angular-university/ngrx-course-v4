@@ -54,8 +54,13 @@ export class ThreadSectionComponent implements OnInit {
 
 
     onThreadSelected(threadId: number) {
-
-        this.store.dispatch(new SelectThreadAction({threadId: threadId, userId:this.currentUserId}));
+        this.threadsService.markThreadAsRead(threadId)
+            .subscribe(
+                () => {
+                    this.store.dispatch(new SelectThreadAction({threadId: threadId, userId:this.currentUserId}));
+                },
+                console.error
+            );
 
     }
 

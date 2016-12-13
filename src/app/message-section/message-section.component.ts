@@ -30,20 +30,14 @@ export class MessageSectionComponent implements OnInit {
 
     ngOnInit() {
 
-        const threadDetail$ = this.store
+        this.store
             .select(mapStateToMessageDetails)
             .filter(thread => !!thread.id)
-            .debug("Thread Detail loaded");
-
-        threadDetail$
+            .debug("Thread Detail loaded")
             .do(currentThreadVM => {
                 this.currentThreadVM = currentThreadVM;
             })
-            .mergeMap(threadDetail => this.threadsService.markThreadAsRead(threadDetail.id) )
-            .subscribe(
-                () => {},
-                console.error
-            );
+            .subscribe();
 
     }
 
