@@ -8,6 +8,7 @@ import {Participant} from "../../server/model/participant";
 import {MessageVM} from "../../server/view-model/message.vm";
 import {MessageNotificationsService} from "../services/message-notifications.service";
 
+
 @Component({
     selector: 'message-section',
     templateUrl: './message-section.component.html',
@@ -52,16 +53,14 @@ export class MessageSectionComponent implements OnInit {
                 console.error
             );
 
-
         this.messageNotificationService.newMessagesForUser$
-            .subscribe(
-                message => {
-                    if (message.threadId == this.currentThread.id) {
-                        this.currentThread.messages.push(message);
-                    }
+            .do(message => {
+                if (message.threadId == this.currentThread.id) {
+                    this.currentThread.messages.push(message);
                 }
-            );
-
+            })
+            .switchMap(() => this.threadsRestService.markThreadAsReadByUser(this.currentThread.id))
+            .subscribe();
     }
 
 

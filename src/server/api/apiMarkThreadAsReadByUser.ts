@@ -15,11 +15,13 @@ export function apiUpdateThread(app: Application) {
 
         const updatedProps = req.body;
 
-        const allThreads: Thread[] = <any> _.values(dbThreads);
+        if (updatedProps.read) {
+            const allThreads: Thread[] = <any> _.values(dbThreads);
 
-        const thread = _.find(allThreads, thread =>  thread.id == threadId );
+            const thread = _.find(allThreads, thread =>  thread.id == threadId );
 
-        thread.participants[participantId] = 0;
+            thread.participants[participantId] = 0;
+        }
 
         res.status(200).send();
 
