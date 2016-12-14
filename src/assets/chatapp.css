@@ -13,7 +13,7 @@
 .chatapp {
     font-family: 'Muli', 'Helvetica Neue', helvetica, arial;
     max-width: 670px;
-    margin: 20px auto;
+    margin: 20px;
     overflow: hidden;
 }
 
@@ -29,7 +29,7 @@
 
 .message-section {
     float: right;
-    width: 400px;
+    width: 265px;
 }
 
 .thread-section {
