@@ -14,8 +14,6 @@ export class ParticipantService {
 
     constructor() {
 
-        console.log('building ParticipantService');
-
         // simplified implementation for demo purposes, normally the user is determined based on authentication
 
     }

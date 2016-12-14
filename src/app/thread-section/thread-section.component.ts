@@ -49,13 +49,12 @@ export class ThreadSectionComponent implements OnInit {
       this.messageNotificationService.newMessagesForUser$
           .subscribe(
               newMessage => {
-                  console.log("processing new message for user ", newMessage);
 
                   if (newMessage.threadId !== this.currentSelectedThreadId) {
                       const  threadWithNewMessage = _.find(this.threads.threadSummaries, thread => thread.id === newMessage.threadId);
-                      threadWithNewMessage.read = false;
+                      threadWithNewMessage.unreadMessagesCounter++;
                       threadWithNewMessage.lastMessage = newMessage.text;
-                      this.threads.unreadThreadsCounter++;
+                      this.threads.unreadMessagesCounter++;
                   }
               },
               console.error
@@ -66,10 +65,11 @@ export class ThreadSectionComponent implements OnInit {
 
     onThreadSelected(threadId:number) {
         if (this.currentSelectedThreadId !=  threadId) {
-            if (this.threads.unreadThreadsCounter > 0) {
+            if (this.threads.unreadMessagesCounter > 0) {
                 const threadSummary = _.find(this.threads.threadSummaries, thread => thread.id === threadId);
-                threadSummary.read = true;
-                this.threads.unreadThreadsCounter--;
+                this.threads.unreadMessagesCounter -= threadSummary.unreadMessagesCounter;
+                threadSummary.unreadMessagesCounter = 0;
+
             }
             this.currentSelectedThreadId = threadId;
             this.currentThreadService.selectThread(threadId);

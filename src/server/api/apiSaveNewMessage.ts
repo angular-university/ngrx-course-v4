@@ -42,7 +42,7 @@ export function apiSaveNewMessage(app: Application) {
 
         });
 
-        thread.participants[participantId] = true;
+        thread.participants[participantId]++;
 
         res.status(200).send();
 

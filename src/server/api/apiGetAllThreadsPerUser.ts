@@ -19,17 +19,17 @@ export function apiGetAllThreadsPerUser(app: Application) {
 
         const threadsPerUser = _.filter(allThreads, thread =>  _.includes(<any>_.keys(thread.participants), participantId));
 
-        const unreadThreads = _.reduce(threadsPerUser,
+        const unreadMessagesCounter = _.reduce(threadsPerUser,
             (acc, thread) => {
 
             if (!thread.participants[participantId]) {
-                acc++;
+                acc += thread.participants[participantId];
             }
             return acc;
         }, 0);
 
         const threadsVm: ThreadsVM = {
-            unreadThreadsCounter: unreadThreads,
+            unreadMessagesCounter,
             threadSummaries: <any>threadsPerUser.map(_.partial(mapThreadToThreadSummary, participantId))
         };
 
@@ -48,14 +48,12 @@ function mapThreadToThreadSummary(participantId:string, thread: Thread): UserThr
 
     const lastMessage: Message = _.last(messagesPerThread);
 
-    console.log('build names for thread ',thread);
-
     return {
         id: thread.id,
         participantNames: buildParticipantNames(thread),
         timestamp: lastMessage.timestamp,
         lastMessage: lastMessage.text,
-        read: thread.participants[participantId]
+        unreadMessagesCounter: thread.participants[participantId]
     };
 
 
