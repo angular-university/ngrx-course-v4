@@ -20,7 +20,7 @@ export function apiUpdateThread(app: Application) {
         const thread = _.find(allThreads, thread =>  thread.id == threadId );
 
         if (updatedProps.hasOwnProperty('read')) {
-            thread.participants[participantId] = updatedProps.read;
+            thread.participants[participantId] = 0;
         }
 
         res.status(200).send();

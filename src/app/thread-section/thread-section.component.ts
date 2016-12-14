@@ -30,7 +30,6 @@ export class ThreadSectionComponent implements OnInit {
 
         const state$ = this.store.skip(1);
 
-
         state$
             .filter( state => state.uiState.userId != this.currentUserId )
             .do(state => {
@@ -51,7 +50,6 @@ export class ThreadSectionComponent implements OnInit {
             );
 
     }
-
 
 
     onThreadSelected(threadId: number) {
