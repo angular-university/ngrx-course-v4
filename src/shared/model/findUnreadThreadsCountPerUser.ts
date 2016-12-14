@@ -6,10 +6,6 @@ import {Thread} from "./thread";
 export function findUnreadThreadsCountPerUser(threadsPerUser: Thread[], participantId: number) {
 return  _.reduce(threadsPerUser,
         (acc, thread) => {
-
-            if (!thread.participants[participantId]) {
-                acc += thread.participants[participantId];
-            }
-            return acc;
+            return acc + thread.participants[participantId];
         }, 0);
 }

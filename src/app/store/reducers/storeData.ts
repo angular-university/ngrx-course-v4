@@ -93,7 +93,7 @@ export function receiveNewMessagesAction(state: StoreData ,action: ReceiveNewMes
             const participantIds = _.keys(newStoreData.threads[message.threadId].participants).map(id => parseInt(id));
 
             if (message.threadId !== action.currentThreadId) {
-                newStoreData.threads[message.threadId].participants[action.currentUserId] = 0;
+                newStoreData.threads[message.threadId].participants[action.currentUserId] += 1;
             }
     });
 
