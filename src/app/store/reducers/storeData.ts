@@ -46,21 +46,17 @@ export function storeData(state = INITIAL_STORE_DATA, action): StoreData {
 
             return newStoreData;
 
-
         case WRITE_NEW_MESSAGE_ACTION:
 
             return writeNewMessageAction(state, action);
-
 
         case RECEIVE_NEW_MESSAGES_ACTION:
 
             return receiveNewMessagesAction(state, action);
 
-
         default:
 
             return state;
-
     }
 
 }
