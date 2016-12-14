@@ -53,14 +53,29 @@
   cursor: pointer;
 }
 
-.thread-name.unread {
-    color: red;
+.thread-list-item.selected {
+    background-color: #1976d2 !important;
+    color: white;
     font-weight: bold;
 }
 
-.thread-name.selected {
+.thread-list-item.selected .thread-name  {
+    color: white;
     font-weight: bold;
+}
+
+
+.thread-list-item.selected:hover {
+    background-color: #1976d2 !important;
+}
+
+.thread-name.selected {
     text-decoration: underline;
+}
+
+.thread-name.unread {
+    color: red;
+    font-weight: bold;
 }
 
 .thread-list:hover .thread-list-item:hover {
