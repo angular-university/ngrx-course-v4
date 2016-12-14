@@ -11,7 +11,6 @@ import {Participant} from "../../../shared/model/participant";
 
 
 export function uiState(state = INITIAL_UI_STATE, action): UiState {
-
     switch(action.type) {
 
         case GET_USER_INFO_ACTION:
@@ -31,9 +30,8 @@ export function uiState(state = INITIAL_UI_STATE, action): UiState {
             const currentThreadId = action.payload.threadId;
 
             return Object.assign({}, state,  {currentThreadId});
+
+        default:
+            return state;
     }
-
-    return state;
-
-
 }

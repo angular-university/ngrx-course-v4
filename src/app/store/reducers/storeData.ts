@@ -14,7 +14,6 @@ import * as _ from 'lodash';
 
 export function storeData(state = INITIAL_STORE_DATA, action): StoreData {
 
-
     switch(action.type) {
 
         case GET_USER_INFO_ACTION:
@@ -28,7 +27,6 @@ export function storeData(state = INITIAL_STORE_DATA, action): StoreData {
                 participants: clonedParticipants
 
             });
-
 
         case LOAD_USER_THREADS_ACTION:
 
@@ -58,9 +56,13 @@ export function storeData(state = INITIAL_STORE_DATA, action): StoreData {
 
             return receiveNewMessagesAction(state, action);
 
+
+        default:
+
+            return state;
+
     }
 
-    return state;
 }
 
 
