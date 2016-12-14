@@ -1,13 +1,7 @@
-
-
-
-
-
-
 import {Participant} from "../../shared/model/participant";
 import {Thread} from "../../shared/model/thread";
 import {Message} from "../../shared/model/message";
-export const dbParticipants: {[key:number]:Participant} = {
+export const dbParticipants: {[key: number]: Participant} = {
     1: {
         id: 1,
         name: 'Alice'
@@ -31,40 +25,39 @@ export const dbParticipants: {[key:number]:Participant} = {
 };
 
 
-
-export const dbThreads: {[key:number]: Thread} = {
+export const dbThreads: {[key: number]: Thread} = {
     1: {
         id: 1,
-        messageIds: [1, 2 ,3 , 4, 5],
+        messageIds: [1, 2, 3, 4, 5],
         participants: {
-            1: false,
-            2: false
+            1: 0,
+            2: 0
         }
     },
     2: {
         id: 2,
         messageIds: [6, 7, 8, 9, 10],
         participants: {
-            1: false,
-            3: false,
-            4: false
+            1: 0,
+            3: 0,
+            4: 0
         }
 
     },
     3: {
         id: 3,
-        messageIds: [11, 12 ,13 ,14],
+        messageIds: [11, 12, 13, 14],
         participants: {
-            1: false,
-            3: false,
-            4:false,
-            5: true
+            1: 0,
+            3: 0,
+            4: 0,
+            5: 0
         }
     }
 };
 
 
-export const dbMessages: {[key:number]: Message} = {
+export const dbMessages: {[key: number]: Message} = {
 
     1: {
         id: 1,
@@ -97,8 +90,6 @@ export const dbMessages: {[key:number]: Message} = {
     },
 
 
-
-
     6: {
         id: 6,
         threadId: 2,
@@ -127,9 +118,6 @@ export const dbMessages: {[key:number]: Message} = {
         text: 'OK kids thats enough, tidy up the living room now please !',
         timestamp: new Date().getTime()
     },
-
-
-
 
 
     11: {
@@ -178,11 +166,10 @@ export const dbMessages: {[key:number]: Message} = {
 };
 
 
-
-export const dbMessagesQueuePerUser: {[key:number]: number[]} = {
+export const dbMessagesQueuePerUser: {[key: number]: number[]} = {
 
     1: [],
-    2:[],
+    2: [],
     3: [],
     4: [],
     5: []

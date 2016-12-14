@@ -19,7 +19,7 @@ export function mapThreadToThreadSummary(participantId:number , messages: Messag
         participantNames: buildParticipantNames(thread, dbParticipants),
         timestamp: lastMessage.timestamp,
         lastMessage: lastMessage.text,
-        read: thread.participants[participantId]
+        unreadMessagesCounter: thread.participants[participantId]
     };
 
 

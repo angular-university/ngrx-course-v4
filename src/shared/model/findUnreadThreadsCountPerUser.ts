@@ -8,7 +8,7 @@ return  _.reduce(threadsPerUser,
         (acc, thread) => {
 
             if (!thread.participants[participantId]) {
-                acc++;
+                acc += thread.participants[participantId];
             }
             return acc;
         }, 0);

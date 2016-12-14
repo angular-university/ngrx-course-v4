@@ -8,5 +8,5 @@ export interface UserThreadSummaryVM {
     participantNames: string;
     timestamp:number;
     lastMessage: string;
-    read:boolean;
+    unreadMessagesCounter:number;
 }

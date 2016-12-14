@@ -39,12 +39,12 @@ export function apiSaveNewMessage(app: Application) {
 
 
         otherParticipantIds.forEach(participantId => {
-            thread.participants[participantId] = false;
+            thread.participants[participantId] += 1;
             dbMessagesQueuePerUser[participantId].push(message.id);
 
         });
 
-        thread.participants[participantId] = true;
+        thread.participants[participantId] = 0;
 
         res.status(200).json({payload:message});
 

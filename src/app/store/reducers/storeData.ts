@@ -42,7 +42,7 @@ export function storeData(state = INITIAL_STORE_DATA, action): StoreData {
 
             const newStoreData: StoreData = Object.assign({}, state);
 
-            newStoreData.threads[payload.threadId].participants[payload.userId] = true;
+            newStoreData.threads[payload.threadId].participants[payload.userId] = 0;
 
             return newStoreData;
 
@@ -97,7 +97,7 @@ export function receiveNewMessagesAction(state: StoreData ,action: ReceiveNewMes
             const participantIds = _.keys(newStoreData.threads[message.threadId].participants).map(id => parseInt(id));
 
             if (message.threadId !== action.currentThreadId) {
-                newStoreData.threads[message.threadId].participants[action.currentUserId] = false;
+                newStoreData.threads[message.threadId].participants[action.currentUserId] = 0;
             }
     });
 
