@@ -10,6 +10,7 @@ export class ThreadListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
