@@ -13,3 +13,10 @@ export interface StoreData {
     messages: {[key:number]:Message};
 
 }
+
+export const INITIAL_STORE_DATA: StoreData = {
+
+    threads: {},
+    messages: {},
+    participants: {}
+};
