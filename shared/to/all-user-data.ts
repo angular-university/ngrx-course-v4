@@ -2,7 +2,7 @@
 
 import {Participant} from "../model/participant";
 import {Thread} from "../model/thread";
-import {Message} from "@angular/compiler/src/i18n/i18n_ast";
+import {Message} from "../model/message";
 
 export interface AllUserData {
     participants: Participant[];
