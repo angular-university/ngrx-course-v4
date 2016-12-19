@@ -21,9 +21,9 @@ export function apiGetUserThreads(app:Application) {
 
             const threadMessages: Message[] = _.filter(dbMessages, (message:any) => message.threadId = thread.id);
 
-            messages.concat(threadMessages);
+            messages = messages.concat(threadMessages);
 
-            participantIds.concat(_.keys(thread.participants));
+            participantIds  = participantIds.concat(_.keys(thread.participants));
 
         });
 
