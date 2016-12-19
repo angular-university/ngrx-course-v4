@@ -9,7 +9,8 @@
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "api-server": "./node_modules/.bin/ts-node $NODE_DEBUG_OPTION ./src/server/server.ts"
+    "api-server": "./node_modules/.bin/ts-node ./src/server/server.ts",
+    "api-server:debug": "./node_modules/.bin/ts-node $NODE_DEBUG_OPTION ./src/server/server.ts"
   },
   "private": true,
   "dependencies": {
