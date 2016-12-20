@@ -36,7 +36,7 @@ export class ThreadSectionComponent implements OnInit {
 
     mapStateToUnreadMessagesCounter(state: ApplicationState): number {
 
-        const currentUserId = state.uiState.currentThreadId;
+        const currentUserId = state.uiState.userId;
 
         return _.values<Thread>(state.storeData.threads)
             .reduce(
