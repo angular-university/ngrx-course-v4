@@ -9,6 +9,7 @@ import {Thread} from "../../../shared/model/thread";
 import {ThreadSummaryVM} from "./thread-summary.vm";
 import {mapStateToUserName} from "./mapStateToUserName";
 import {mapStateToUnreadMessagesCounter} from "./mapStateToUnreadMessagesCounter";
+import {stateToThreadSummariesSelector} from "./stateToThreadSummariesSelector";
 
 @Component({
     selector: 'thread-section',
@@ -33,33 +34,9 @@ export class ThreadSectionComponent implements OnInit {
             .map(mapStateToUnreadMessagesCounter);
 
 
-        this.threadSummaries$ = store.select(
-            state => {
-
-                const threads = _.values<Thread>(state.storeData.threads);
-
-                return threads.map(thread => {
-
-                    const names =  _.keys(thread.participants).map(
-                        participantId => state.storeData.participants[participantId].name );
-
-                    const lastMessageId = _.last(thread.messageIds),
-                           lastMessage = state.storeData.messages[lastMessageId];
-
-                    return {
-                        id: thread.id,
-                        participantNames: _.join(names, ","),
-                        lastMessageText: lastMessage.text,
-                        timestamp: lastMessage.timestamp
-                    }
-
-                });
-
-            }
-        );
+        this.threadSummaries$ = store.select(stateToThreadSummariesSelector);
 
     }
-
 
     ngOnInit() {
 
