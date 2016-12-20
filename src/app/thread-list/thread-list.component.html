@@ -1,3 +1,6 @@
-<p>
-  thread-list works!
-</p>
+<ul class="thread-list">
+    <li class="thread-list-item" *ngFor="let thread of threads">
+        <h5 class="thread-name">{{thread.participantNames}}</h5>
+        <div class="thread-last-message">{{thread.lastMessageText}}</div>
+    </li>
+</ul>

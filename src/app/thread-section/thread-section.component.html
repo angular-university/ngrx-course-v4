@@ -5,4 +5,6 @@
         <span>Unread messages: {{unreadMessagesCounter$ | async }}</span>
     </div>
 
+    <thread-list [threads]="threadSummaries$ | async"></thread-list>
+
 </div>
