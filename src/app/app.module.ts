@@ -12,8 +12,10 @@ import { MessageListComponent } from './message-list/message-list.component';
 import {ThreadsService} from "./services/threads.service";
 import {StoreModule, Action} from "@ngrx/store";
 import {INITIAL_APPLICATION_STATE, ApplicationState} from "./store/application-state";
-import {LOAD_USER_THREADS_ACTION, LoadUserThreadsAction} from "./store/actions";
+import {USER_THREADS_LOADED_ACTION, UserThreadsLoadedAction} from "./store/actions";
 import * as _ from 'lodash';
+import {EffectsModule} from "@ngrx/effects";
+import {LoadThreadsEffectService} from "./store/effects/load-threads-effect.service";
 
 
 export function storeReducer(
@@ -22,7 +24,7 @@ export function storeReducer(
 
     switch (action.type)  {
 
-        case LOAD_USER_THREADS_ACTION:
+        case USER_THREADS_LOADED_ACTION:
 
             return handleLoadUserThreadsAction(state,action);
 
@@ -35,7 +37,7 @@ export function storeReducer(
 }
 
 function handleLoadUserThreadsAction(state:ApplicationState,
-    action: LoadUserThreadsAction): ApplicationState {
+    action: UserThreadsLoadedAction): ApplicationState {
 
     const userData = action.payload;
 
@@ -64,7 +66,8 @@ function handleLoadUserThreadsAction(state:ApplicationState,
     BrowserModule,
     FormsModule,
     HttpModule,
-      StoreModule.provideStore(storeReducer)
+      StoreModule.provideStore(storeReducer),
+      EffectsModule.run(LoadThreadsEffectService)
   ],
   providers: [ThreadsService],
   bootstrap: [AppComponent]
