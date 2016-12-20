@@ -5,7 +5,7 @@ import {ApplicationState} from "../store/application-state";
 import {LoadUserThreadsAction} from "../store/actions";
 import {Observable} from "rxjs";
 import {ThreadSummaryVM} from "./thread-summary.vm";
-import {userNameSelector} from "./mapStateToUserName";
+import {userNameSelector} from "./userNameSelector";
 import {mapStateToUnreadMessagesCounter} from "./mapStateToUnreadMessagesCounter";
 import {stateToThreadSummariesSelector} from "./stateToThreadSummariesSelector";
 
@@ -25,10 +25,7 @@ export class ThreadSectionComponent implements OnInit {
 
         this.userName$ = store.select(userNameSelector);
 
-        this.unreadMessagesCounter$ = store
-            .skip(1)
-            .map(mapStateToUnreadMessagesCounter);
-
+        this.unreadMessagesCounter$ = store.map(mapStateToUnreadMessagesCounter);
 
         this.threadSummaries$ = store.select(stateToThreadSummariesSelector);
 
