@@ -1,23 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {ApplicationState} from "../store/application-state";
 import {Store} from "@ngrx/store";
+import {Observable} from "rxjs";
+import {MessageVM} from "./message.vm";
+import {messageParticipantNameSelector} from "./messageParticipantNameSelector";
+import {messagesSelector} from "./messagesSelector";
 
 @Component({
-  selector: 'message-section',
-  templateUrl: './message-section.component.html',
-  styleUrls: ['./message-section.component.css']
+    selector: 'message-section',
+    templateUrl: './message-section.component.html',
+    styleUrls: ['./message-section.component.css']
 })
-export class MessageSectionComponent implements OnInit {
+export class MessageSectionComponent {
 
-  constructor(private store: Store<ApplicationState>) {
+    participantNames$: Observable<string>;
+    messages$: Observable<MessageVM[]>;
 
-      store.subscribe(
-          state => console.log("message section received state",state)
-      );
+    constructor(private store: Store<ApplicationState>) {
 
-  }
+        this.participantNames$ = store.select(messageParticipantNameSelector);
 
-  ngOnInit() {
-  }
+        this.messages$ = store.select(messagesSelector);
+
+    }
 
 }
