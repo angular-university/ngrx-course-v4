@@ -13,11 +13,19 @@ import {LoadUserThreadsAction} from "../store/actions";
 })
 export class ThreadSectionComponent implements OnInit {
 
+  userName:string;
+
   constructor(private threadsService: ThreadsService,
                 private store: Store<ApplicationState>) {
 
-      store.subscribe(
-          state => console.log('thread section received state', state)
+      store
+          .skip(1)
+          .subscribe(
+          state => {
+
+              this.userName = state.storeData.participants[state.uiState.userId].name;
+
+          }
       );
 
   }
