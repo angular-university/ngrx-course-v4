@@ -4,10 +4,8 @@ import {Store} from "@ngrx/store";
 import {ApplicationState} from "../store/application-state";
 import {LoadUserThreadsAction} from "../store/actions";
 import {Observable} from "rxjs";
-import * as _ from 'lodash';
-import {Thread} from "../../../shared/model/thread";
 import {ThreadSummaryVM} from "./thread-summary.vm";
-import {mapStateToUserName} from "./mapStateToUserName";
+import {userNameSelector} from "./mapStateToUserName";
 import {mapStateToUnreadMessagesCounter} from "./mapStateToUnreadMessagesCounter";
 import {stateToThreadSummariesSelector} from "./stateToThreadSummariesSelector";
 
@@ -25,9 +23,7 @@ export class ThreadSectionComponent implements OnInit {
     constructor(private threadsService: ThreadsService,
                 private store: Store<ApplicationState>) {
 
-        this.userName$ = store
-            .skip(1)
-            .map(mapStateToUserName);
+        this.userName$ = store.select(userNameSelector);
 
         this.unreadMessagesCounter$ = store
             .skip(1)
