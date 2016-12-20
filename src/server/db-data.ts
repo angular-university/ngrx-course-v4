@@ -93,8 +93,13 @@ export const dbMessages: {[key: number]: Message} = {
         text: 'OK, no problem',
         timestamp: new Date().getTime()
     },
-
-
+    5: {
+        id: 5,
+        threadId: 1,
+        participantId: 1,
+        text: 'Great',
+        timestamp: new Date().getTime()
+    },
     6: {
         id: 6,
         threadId: 2,
