@@ -16,6 +16,7 @@ import {USER_THREADS_LOADED_ACTION, UserThreadsLoadedAction} from "./store/actio
 import * as _ from 'lodash';
 import {EffectsModule} from "@ngrx/effects";
 import {LoadThreadsEffectService} from "./store/effects/load-threads-effect.service";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 
 
 export function storeReducer(
@@ -67,9 +68,18 @@ function handleLoadUserThreadsAction(state:ApplicationState,
     FormsModule,
     HttpModule,
       StoreModule.provideStore(storeReducer),
-      EffectsModule.run(LoadThreadsEffectService)
+      EffectsModule.run(LoadThreadsEffectService),
+      StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   providers: [ThreadsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
+
+
+
+
