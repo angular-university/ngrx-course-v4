@@ -10,15 +10,11 @@ import { MessageSectionComponent } from './message-section/message-section.compo
 import { ThreadListComponent } from './thread-list/thread-list.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import {ThreadsService} from "./services/threads.service";
-import {StoreModule, Action, combineReducers} from "@ngrx/store";
-import {INITIAL_APPLICATION_STATE, ApplicationState} from "./store/application-state";
-import {USER_THREADS_LOADED_ACTION, UserThreadsLoadedAction} from "./store/actions";
-import * as _ from 'lodash';
+import {StoreModule, combineReducers} from "@ngrx/store";
+import {INITIAL_APPLICATION_STATE} from "./store/application-state";
 import {EffectsModule} from "@ngrx/effects";
 import {LoadThreadsEffectService} from "./store/effects/load-threads-effect.service";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
-import {UiState, INITIAL_UI_STATE} from "./store/ui-state";
-import {StoreData} from "./store/store-data";
 import {uiState} from "./store/reducers/uiStateReducer";
 import {storeData} from "./store/reducers/uiStoreDataReducer";
 
