@@ -33,3 +33,10 @@ function mapMessageToMessageVM(state: ApplicationState, message:Message): Messag
         participantName: state.storeData.participants[message.participantId].name
     };
 }
+
+
+
+
+
+
+
