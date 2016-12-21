@@ -123,6 +123,13 @@ export const dbMessages: {[key: number]: Message} = {
         text: 'Me neither Mom ! ',
         timestamp: new Date().getTime()
     },
+    9: {
+        id: 9,
+        threadId: 2,
+        participantId: 4,
+        text: 'Really ! ',
+        timestamp: new Date().getTime()
+    },
     10: {
         id: 10,
         threadId: 2,
