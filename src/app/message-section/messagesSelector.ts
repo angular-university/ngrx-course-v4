@@ -18,8 +18,6 @@ export function messagesSelector(state:ApplicationState): MessageVM[] {
 
     const messageIds = state.storeData.threads[state.uiState.currentThreadId].messageIds;
 
-    debugger;
-
     const messages = messageIds.map(messageId =>  state.storeData.messages[messageId]);
 
     return messages.map(_.partial(mapMessageToMessageVM, state));
