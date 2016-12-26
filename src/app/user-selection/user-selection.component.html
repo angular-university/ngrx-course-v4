@@ -1,3 +1,13 @@
-<p>
-  user-selection works!
-</p>
+<div>
+    <span>
+        Select User:
+        <select (change)="onSelectUser($event.target.value)">
+            <option></option>
+            <option value="1">Alice</option>
+            <option value="2">Bob</option>
+            <option value="3">Chuck</option>
+            <option value="4">David</option>
+            <option value="5">Erin</option>
+        </select>
+    </span>
+</div>
