@@ -37,7 +37,7 @@
     "@angular/compiler-cli": "2.2.3",
     "@types/express": "^4.0.34",
     "@types/jasmine": "2.5.38",
-    "@types/lodash": "^4.14.43",
+    "@types/lodash": "^4.14.44",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.20-4",
     "body-parser": "^1.15.2",
