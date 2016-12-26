@@ -4,6 +4,6 @@
 
     <message-list [messages]="messages$ | async"></message-list>
 
-    <textarea class="message-composer" name="message"></textarea>
+    <textarea class="message-composer" name="message" (keyup.enter)="onNewMessage(input)" #input></textarea>
 
 </div>
