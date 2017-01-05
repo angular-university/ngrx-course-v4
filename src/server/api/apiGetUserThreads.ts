@@ -19,7 +19,7 @@ export function apiGetUserThreads(app:Application) {
 
         threadsPerUser.forEach(thread => {
 
-            const threadMessages: Message[] = _.filter(dbMessages, (message:any) => message.threadId = thread.id);
+            const threadMessages: Message[] = _.filter(dbMessages, (message:any) => message.threadId == thread.id);
 
             messages = messages.concat(threadMessages);
 
