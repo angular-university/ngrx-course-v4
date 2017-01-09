@@ -1,0 +1,192 @@
+{
+  "participants": [
+    {
+      "id": 1,
+      "name": "Alice"
+    },
+    {
+      "id": 2,
+      "name": "Bob"
+    },
+    null,
+    {
+      "id": 3,
+      "name": "Chuck"
+    },
+    {
+      "id": 4,
+      "name": "David"
+    },
+    {
+      "id": 5,
+      "name": "Erin"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "threadId": 1,
+      "participantId": 1,
+      "text": "Did you take take out the trash today ?",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 2,
+      "threadId": 1,
+      "participantId": 2,
+      "text": "Is it full again ?",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 3,
+      "threadId": 1,
+      "participantId": 1,
+      "text": "Yes, can you take it out now ? ",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 4,
+      "threadId": 1,
+      "participantId": 2,
+      "text": "OK, no problem",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 5,
+      "threadId": 1,
+      "participantId": 1,
+      "text": "Great",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 20,
+      "threadId": 1,
+      "timestamp": 1483966360084,
+      "participantId": null
+    },
+    {
+      "id": 6,
+      "threadId": 2,
+      "participantId": 1,
+      "text": "This living room is a disaster, clean this up kids ! ",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 7,
+      "threadId": 2,
+      "participantId": 3,
+      "text": "Wasn't me Mom ! ",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 8,
+      "threadId": 2,
+      "participantId": 4,
+      "text": "Me neither Mom ! ",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 9,
+      "threadId": 2,
+      "participantId": 4,
+      "text": "Really ! ",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 10,
+      "threadId": 2,
+      "participantId": 1,
+      "text": "OK kids thats enough, tidy up the living room now please !",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 11,
+      "threadId": 3,
+      "participantId": 1,
+      "text": "Everyone come to the table, dinner is ready ",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 12,
+      "threadId": 3,
+      "participantId": 3,
+      "text": "No dad Im watching this cartoon its not over yet ",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 13,
+      "threadId": 3,
+      "participantId": 4,
+      "text": "No Mom we want to keep watching TV too its my favorite show ",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 14,
+      "threadId": 3,
+      "participantId": 5,
+      "text": "gaaaggggaaaaaaaaaa mhmaam mhaammmm mmaaammaaa paaappppaaaaa",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 15,
+      "threadId": 3,
+      "participantId": 1,
+      "text": "Maybe later, I'm not hungry ",
+      "timestamp": 1483966342965
+    },
+    {
+      "id": 16,
+      "threadId": 3,
+      "participantId": 1,
+      "text": "Let's go everyone, put that on pause and come to the table, the dinner will be cold",
+      "timestamp": 1483966342965
+    }
+  ],
+  "threads": [
+    {
+      "id": 1,
+      "messageIds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "participants": {
+        "1": 1,
+        "2": 1,
+        "NaN": 0
+      }
+    },
+    {
+      "id": 2,
+      "messageIds": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "participants": {
+        "1": 0,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "id": 3,
+      "messageIds": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "participants": {
+        "1": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
+    }
+  ]
+}

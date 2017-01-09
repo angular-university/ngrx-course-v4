@@ -17,6 +17,7 @@ export class WriteNewMessageEffectService {
 
     @Effect({dispatch:false}) newMessages$ : Observable<any> = this.actions$
         .ofType(SEND_NEW_MESSAGE_ACTION)
+        .debug("sending new message to the server")
         .switchMap(action => this.threadsService.saveNewMessage(action.payload));
 
 }
