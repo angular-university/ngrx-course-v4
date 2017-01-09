@@ -45,7 +45,7 @@ function handleSendNewMessageAction(state:StoreData, action: SendNewMessageActio
 
     const newStoreState = _.cloneDeep(state);
 
-    const currentThread = state.threads[action.payload.threadId];
+    const currentThread = newStoreState.threads[action.payload.threadId];
 
     const newMessage: Message = {
         text: action.payload.text,
@@ -57,7 +57,7 @@ function handleSendNewMessageAction(state:StoreData, action: SendNewMessageActio
 
     currentThread.messageIds.push(newMessage.id);
 
-    state.messages[newMessage.id] = newMessage;
+    newStoreState.messages[newMessage.id] = newMessage;
 
     return newStoreState;
 }
