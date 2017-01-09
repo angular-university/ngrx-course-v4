@@ -77,7 +77,7 @@ export class SendNewMessageAction implements Action {
 export class NewMessagesReceivedAction implements Action {
     readonly type = NEW_MESSAGES_RECEIVED_ACTION;
 
-    constructor(public payload?: Message[] = []) {
+    constructor(public payload?: Message[]) {
 
     }
 }

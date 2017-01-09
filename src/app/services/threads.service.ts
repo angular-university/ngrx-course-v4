@@ -27,10 +27,21 @@ export class ThreadsService {
     }
 
 
-    loadNewMessagesForUser(): Observable<Message[]> {
-       return null;
+    loadNewMessagesForUser(userId:number): Observable<Message[]> {
+        return this.http.post('/api/notifications/messages', null, commonHttpHeaders(userId))
+            .map(res => res.json().payload);
     }
 
 
 
 }
+
+
+
+
+
+
+
+
+
+

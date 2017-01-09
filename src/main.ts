@@ -8,7 +8,10 @@ import { AppModule } from './app/';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/filter';
 import {Observable} from "rxjs";
+
 
 const debuggerOn = true;
 
