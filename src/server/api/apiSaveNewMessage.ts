@@ -47,8 +47,6 @@ export function apiSaveNewMessage(app: Application) {
 
         thread.participants[participantId] = 0;
 
-        console.log(dbMessages);
-
         res.status(200).send();
 
     });
