@@ -74,10 +74,16 @@ export class SendNewMessageAction implements Action {
 }
 
 
+export interface NewMessagesReceivedActionPayload {
+    unreadMessages: Message[];
+    currentThreadId: number;
+    currentUserId:number;
+}
+
 export class NewMessagesReceivedAction implements Action {
     readonly type = NEW_MESSAGES_RECEIVED_ACTION;
 
-    constructor(public payload?: Message[]) {
+    constructor(public payload?: NewMessagesReceivedActionPayload) {
 
     }
 }

@@ -23,7 +23,12 @@ export class ServerNotificationsEffectService {
         .filter(uiState => uiState.userId)
         .switchMap(uiState => this.threadsService.loadNewMessagesForUser(uiState.userId))
         .debug("new messages received from server")
-        .map(messages =>  new NewMessagesReceivedAction(messages))
+        .withLatestFrom(this.store.select("uiState"))
+        .map(([unreadMessages, uiState]) =>  new NewMessagesReceivedAction({
+            unreadMessages,
+            currentThreadId: uiState.currentThreadId,
+            currentUserId: uiState.userId
+        }))
 
 
 

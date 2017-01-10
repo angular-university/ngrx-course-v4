@@ -38,7 +38,6 @@ export function apiSaveNewMessage(app: Application) {
 
         const otherParticipantIds = _.keys(thread.participants).filter(id => parseInt(id) !== participantId);
 
-
         otherParticipantIds.forEach(participantId => {
             thread.participants[participantId] += 1;
             dbMessagesQueuePerUser[participantId].push(message.id);
