@@ -23,10 +23,6 @@ export function apiMessageNotificationsPerUser(app: Application) {
 
         dbMessagesQueuePerUser[participantId] = [];
 
-        unreadMessages.forEach(message => {
-           dbThreads[message.threadId].participants[participantId] -= 1;
-        });
-
         res.status(200).json({payload: unreadMessages});
 
     });
