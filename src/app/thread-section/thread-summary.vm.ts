@@ -7,6 +7,7 @@ export interface ThreadSummaryVM {
     participantNames:string;
     lastMessageText:string;
     timestamp:number;
+    read:boolean;
 
 
 }
