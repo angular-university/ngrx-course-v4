@@ -14,7 +14,7 @@ export function uiState(state: UiState = INITIAL_UI_STATE, action: Action) : UiS
 
             const newState = Object.assign({}, state);
 
-            newState.currentThreadId = action.payload.currentThreadId;
+            newState.currentThreadId = action.payload.selectedThreadId;
 
             return newState;
 
@@ -26,9 +26,11 @@ export function uiState(state: UiState = INITIAL_UI_STATE, action: Action) : UiS
 
         default:
             return state;
+
     }
 
 }
+
 
 function handleSelectUserAction(state: UiState, action: SelectUserAction) {
 
