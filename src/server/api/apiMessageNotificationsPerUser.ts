@@ -2,7 +2,7 @@
 
 
 import {Application} from 'express';
-import {dbMessagesQueuePerUser, dbMessages} from "../db-data";
+import {dbMessagesQueuePerUser, dbMessages, dbThreads} from "../db-data";
 
 
 export function apiMessageNotificationsPerUser(app: Application) {
@@ -17,19 +17,17 @@ export function apiMessageNotificationsPerUser(app: Application) {
             return;
         }
 
-        const messageIdsQueuedForUser = dbMessagesQueuePerUser[participantId];
+        const unreadMessageIds = dbMessagesQueuePerUser[participantId];
 
-        const messagesQueued = [];
-
-        messageIdsQueuedForUser.forEach(messageId => {
-
-            messagesQueued.push(dbMessages[messageId]);
-
-        });
+        const unreadMessages = unreadMessageIds.map( messageId => dbMessages[messageId] );
 
         dbMessagesQueuePerUser[participantId] = [];
 
-        res.status(200).json({payload: messagesQueued});
+        unreadMessages.forEach(message => {
+           dbThreads[message.threadId].participants[participantId] -= 1;
+        });
+
+        res.status(200).json({payload: unreadMessages});
 
     });
 
