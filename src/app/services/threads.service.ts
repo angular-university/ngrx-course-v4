@@ -33,6 +33,13 @@ export class ThreadsService {
     }
 
 
+    markMessagesAsRead(currentUserId: number, selectedThreadId:number): Observable<any> {
+
+       return this.http.patch(`/api/threads/${selectedThreadId}`, {read:true} , commonHttpHeaders(currentUserId));
+
+    }
+
+
 
 }
 

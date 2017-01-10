@@ -10,7 +10,7 @@ export function apiUpdateThread(app: Application) {
 
     app.route('/api/threads/:id').patch((req, res) => {
 
-        const participantId = req.headers['participantid'];
+        const participantId = req.headers['userid'];
 
         const threadId = req.params['id'];
 
