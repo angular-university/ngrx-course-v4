@@ -14,7 +14,7 @@ export function uiState(state: UiState = INITIAL_UI_STATE, action: Action) : UiS
 
             const newState = Object.assign({}, state);
 
-            newState.currentThreadId = action.payload;
+            newState.currentThreadId = action.payload.currentThreadId;
 
             return newState;
 

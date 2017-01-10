@@ -9,7 +9,7 @@
 
     <thread-list
             [threads]="threadSummaries$ | async"
-            [currentSelectedThreadId]="currentSelectedThreadId$ |async"
+            [currentSelectedThreadId]="uiState?.currentThreadId"
             (threadSelected)="onThreadSelected($event)" ></thread-list>
 
 </div>
