@@ -1,21 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApplicationState} from "../store/application-state";
 import {Store} from "@ngrx/store";
+import {UiState} from "../store/ui-state";
 
 @Component({
-  selector: 'messages',
-  templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+    selector: 'messages',
+    templateUrl: './messages.component.html',
+    styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(private store: Store<ApplicationState>) { }
+    message:string;
 
-  ngOnInit() {
+    constructor(private store: Store<ApplicationState>) {
 
+    }
 
+    ngOnInit() {
 
+        this.store.select<UiState>("uiState").subscribe(
+            (uiState:UiState) => this.message = uiState.currentError
+        );
 
-  }
+    }
+
+    close() {
+        this.message = '';
+    }
 
 }
