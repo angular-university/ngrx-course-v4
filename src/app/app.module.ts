@@ -20,6 +20,7 @@ import {storeData} from "./store/reducers/uiStoreDataReducer";
 import {WriteNewMessageEffectService} from "./store/effects/write-new-message-effect.service";
 import {ServerNotificationsEffectService} from "./store/effects/server-notifications-effect.service";
 import {MarkMessagesAsReadEffectService} from "./store/effects/mark-messages-as-read-effect.service";
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {MarkMessagesAsReadEffectService} from "./store/effects/mark-messages-as-
     ThreadSectionComponent,
     MessageSectionComponent,
     ThreadListComponent,
-    MessageListComponent
+    MessageListComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

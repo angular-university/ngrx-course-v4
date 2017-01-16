@@ -13,6 +13,7 @@ export const THREAD_SELECTED_ACTION = 'THREAD_SELECTED_ACTION';
 export const SELECT_USER_ACTION = 'SELECT_USER_ACTION';
 export const SEND_NEW_MESSAGE_ACTION = 'SEND_NEW_MESSAGE_ACTION';
 export const NEW_MESSAGES_RECEIVED_ACTION = 'NEW_MESSAGES_RECEIVED_ACTION';
+export const ERROR_OCCURRED_ACTION = 'ERROR_OCCURRED_ACTION';
 
 
 export class LoadUserThreadsAction implements  Action {
@@ -94,6 +95,20 @@ export class NewMessagesReceivedAction implements Action {
 
     }
 }
+
+
+export class ErrorOccurredAction implements Action {
+
+    readonly type = ERROR_OCCURRED_ACTION;
+
+    constructor(public payload?: string) {
+
+    }
+}
+
+
+
+
 
 
 

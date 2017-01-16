@@ -18,7 +18,9 @@ export function apiSaveNewMessage(app: Application) {
 
         const payload = req.body;
 
-        const threadId = parseInt(req.params.id),
+        throw new Error("Error occurred");
+
+/*        const threadId = parseInt(req.params.id),
             participantId = parseInt(req.headers['userid']);
 
         const message: Message = {
@@ -46,7 +48,7 @@ export function apiSaveNewMessage(app: Application) {
 
         thread.participants[participantId] = 0;
 
-        res.status(200).send();
+        res.status(200).send();*/
 
     });
 
