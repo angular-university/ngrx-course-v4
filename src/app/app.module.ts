@@ -23,6 +23,13 @@ import {MarkMessagesAsReadEffectService} from "./store/effects/mark-messages-as-
 import { MessagesComponent } from './messages/messages.component';
 import {compose} from "@ngrx/core/compose";
 import {storeFreeze} from "ngrx-store-freeze";
+import {RouterModule} from "@angular/router";
+import {routes} from "./routes";
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import {routerReducer, RouterStoreModule} from "@ngrx/router-store";
+
+
 
 
 @NgModule({
@@ -33,13 +40,17 @@ import {storeFreeze} from "ngrx-store-freeze";
     MessageSectionComponent,
     ThreadListComponent,
     MessageListComponent,
-    MessagesComponent
+    MessagesComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-      StoreModule.provideStore(compose(storeFreeze, combineReducers)({uiState,storeData}), INITIAL_APPLICATION_STATE),
+      RouterModule.forRoot(routes, { useHash: true }),
+      StoreModule.provideStore(compose(storeFreeze, combineReducers)({uiState,storeData, router: routerReducer}), INITIAL_APPLICATION_STATE),
+      RouterStoreModule.connectRouter(),
       EffectsModule.run(LoadThreadsEffectService),
       EffectsModule.run(WriteNewMessageEffectService),
       EffectsModule.run(ServerNotificationsEffectService),
