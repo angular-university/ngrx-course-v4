@@ -21,6 +21,8 @@ import {WriteNewMessageEffectService} from "./store/effects/write-new-message-ef
 import {ServerNotificationsEffectService} from "./store/effects/server-notifications-effect.service";
 import {MarkMessagesAsReadEffectService} from "./store/effects/mark-messages-as-read-effect.service";
 import { MessagesComponent } from './messages/messages.component';
+import {compose} from "@ngrx/core/compose";
+import {storeFreeze} from "ngrx-store-freeze";
 
 
 @NgModule({
@@ -37,7 +39,7 @@ import { MessagesComponent } from './messages/messages.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-      StoreModule.provideStore(combineReducers({uiState,storeData}), INITIAL_APPLICATION_STATE),
+      StoreModule.provideStore(compose(storeFreeze, combineReducers)({uiState,storeData}), INITIAL_APPLICATION_STATE),
       EffectsModule.run(LoadThreadsEffectService),
       EffectsModule.run(WriteNewMessageEffectService),
       EffectsModule.run(ServerNotificationsEffectService),

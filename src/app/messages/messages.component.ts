@@ -19,7 +19,7 @@ export class MessagesComponent implements OnInit {
     ngOnInit() {
 
         this.store.select<UiState>("uiState").subscribe(
-            (uiState:UiState) => this.message = uiState.currentError
+            (uiState:UiState) => this.message = uiState ? uiState.currentError : undefined
         );
 
     }
