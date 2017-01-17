@@ -5,14 +5,13 @@ import {ThreadSummaryVM} from "./thread-summary.vm";
 import * as _ from 'lodash';
 import {buildThreadParticipantsList} from "../shared/mapping/buildThreadParticipantsList";
 
-
+const deepFreeze = require('deep-freeze-strict');
 
 export function stateToThreadSummariesSelector(state: ApplicationState):ThreadSummaryVM[] {
 
     const threads = _.values<Thread>(state.storeData.threads);
 
-    return threads.map(_.partial(mapThreadToThreadSummary, state));
-
+    return deepFreeze(threads.map(_.partial(mapThreadToThreadSummary, state)));
 }
 
 
