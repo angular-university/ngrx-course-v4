@@ -6,7 +6,6 @@ import {MessageVM} from "./message.vm";
 import {Message} from "../../../shared/model/message";
 import * as _ from 'lodash';
 
-const deepFreeze = require('deep-freeze-strict');
 
 
 export function messagesSelector(state:ApplicationState): MessageVM[] {
@@ -21,7 +20,7 @@ export function messagesSelector(state:ApplicationState): MessageVM[] {
 
     const messages = messageIds.map(messageId =>  state.storeData.messages[messageId]);
 
-    return deepFreeze(messages.map(_.partial(mapMessageToMessageVM, state)));
+    return messages.map(_.partial(mapMessageToMessageVM, state));
 }
 
 
