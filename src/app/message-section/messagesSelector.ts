@@ -40,7 +40,11 @@ const mapMessageToMessageVM = _.memoize((participantName:string, message:Message
         timestamp: message.timestamp,
         participantName: participantName
     };
-});
+},
+
+    (participantName:string, message:Message) => message.id + participantName
+
+);
 
 
 
