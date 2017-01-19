@@ -30,6 +30,7 @@
     "core-js": "^2.4.1",
     "express": "^4.14.0",
     "lodash": "^4.17.2",
+    "reselect": "^2.5.4",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
     "uuid": "^3.0.1",
