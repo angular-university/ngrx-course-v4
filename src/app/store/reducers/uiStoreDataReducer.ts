@@ -80,8 +80,8 @@ function handleNewMessagesReceivedAction(state:StoreData, action: NewMessagesRec
 
     const newStoreState: StoreData = {
         participants: state.participants,
-        threads: Object.assign({}, state.threads),
-        messages: Object.assign({}, state.messages)
+        threads: _.clone(state.threads),
+        messages: _.clone(state.messages)
     };
 
     const newMessages = action.payload.unreadMessages,
@@ -92,14 +92,16 @@ function handleNewMessagesReceivedAction(state:StoreData, action: NewMessagesRec
 
         newStoreState.messages[message.id] = message;
 
-        newStoreState.threads[message.threadId] = Object.assign({}, state.threads[message.threadId]);
+        newStoreState.threads[message.threadId] = _.clone(newStoreState.threads[message.threadId]);
 
-        newStoreState.threads[message.threadId].messageIds = newStoreState.threads[message.threadId].messageIds.slice(0);
-        newStoreState.threads[message.threadId].messageIds.push(message.id);
+        const messageThread = newStoreState.threads[message.threadId];
+
+        messageThread.messageIds = _.clone(messageThread.messageIds);
+        messageThread.messageIds.push(message.id);
 
         if (message.threadId !== currentThreadId) {
-            newStoreState.threads[message.threadId].participants = _.clone(newStoreState.threads[message.threadId].participants);
-            newStoreState.threads[message.threadId].participants[currentUserId] += 1;
+            messageThread.participants = _.clone(newStoreState.threads[message.threadId].participants);
+            messageThread.participants[currentUserId] += 1;
         }
 
     });
