@@ -98,6 +98,7 @@ function handleNewMessagesReceivedAction(state:StoreData, action: NewMessagesRec
         newStoreState.threads[message.threadId].messageIds.push(message.id);
 
         if (message.threadId !== currentThreadId) {
+            newStoreState.threads[message.threadId].participants = _.clone(newStoreState.threads[message.threadId].participants);
             newStoreState.threads[message.threadId].participants[currentUserId] += 1;
         }
 
