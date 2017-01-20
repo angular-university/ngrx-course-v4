@@ -48,6 +48,18 @@ We can start the chat  application with the following command:
   The application is visible at port 4200 - [http://localhost:4200](http://localhost:4200)
 
 
+# Installing branches other than master
+
+At certain points along the course, you will be asked to checkout other remote branches other than master. You can view all branches that you have available remotely using the following command:
+
+    git branch -a
+    
+  The remote branches have their starting in origin, such as for example start-with-ngrx-store-now.
+  
+  We can checkout the remote branch and start tracking it with a local branch that has the same name, by using the following command:
+  
+      git checkout -b start-with-ngrx-store-now origin/start-with-ngrx-store-now
+
 
 
 
