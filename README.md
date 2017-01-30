@@ -5,6 +5,28 @@ This repository contains the full application of the Angular Ngrx Reactive Exten
 
 ![Angular Ngrx Course](https://angular-academy.s3.amazonaws.com/thumbnails/ngrx-angular.png)
 
+
+
+# Angular 2 and Firebase - Build a Web Application Course
+
+If you are looking for the Angular 2 and Firebase - Build a Web Application Course code, the repo with the full code can be found here:
+
+[Angular 2 and Firebase - Build a Web Application](https://github.com/angular-university/angular-firebase-app)
+
+![Angular firebase course](https://angular-academy.s3.amazonaws.com/thumbnails/angular_app-firebase-small.jpg)
+
+
+# Complete Typescript 2 Course - Build A REST API
+
+If you are looking for the Complete Typescript 2 Course - Build a REST API, the repo with the full code can be found here:
+
+[Complete Typescript 2 Course - Build A REST API](https://github.com/angular-university/complete-typescript-course)
+
+![Complete Typescript Course](https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png)
+
+
+
+
 # Installation pre-requisites
 
 For running this project we need and npm installed on our machine. These are some tutorials to install node in different operating systems:
