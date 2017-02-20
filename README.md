@@ -47,7 +47,7 @@ For running this project we need and npm installed on our machine. These are som
 
 With the following command the angular-cli will be installed globally in your machine:
 
-    npm install -g angular-cli
+    npm install -g @angular/cli
 
 
 # How To install this repository
