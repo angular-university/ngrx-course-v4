@@ -16,15 +16,15 @@ export function storeData(state: StoreData, action:Action) : StoreData {
 
         case USER_THREADS_LOADED_ACTION:
 
-            return handleLoadUserThreadsAction(state,action);
+            return handleLoadUserThreadsAction(state,<any>action);
 
         case SEND_NEW_MESSAGE_ACTION:
 
-            return handleSendNewMessageAction(state, action);
+            return handleSendNewMessageAction(state, <any>action);
 
         case NEW_MESSAGES_RECEIVED_ACTION:
 
-            return handleNewMessagesReceivedAction(state, action);
+            return handleNewMessagesReceivedAction(state, <any>action);
 
         default:
             return state;
