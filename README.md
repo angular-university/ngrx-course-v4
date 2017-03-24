@@ -3,14 +3,22 @@
 
 This repository contains the full application of the [Angular Ngrx Reactive Extensions Architecture Course](https://angular-university.io/course/angular2-ngrx).
 
+This course repository is updated to Angular 4, there is a Yarn lock file available.
+
 ![Angular Ngrx Course](https://angular-academy.s3.amazonaws.com/thumbnails/ngrx-angular.png)
 
+# RxJs and Reactive Patterns Angular Architecture Course
+
+If you are looking for the RxJs and Reactive Patterns Angular Architecture Course code, the repo with the full code can be found here:
+
+[RxJs and Reactive Patterns Angular Architecture Course](https://angular-university.io/course/reactive-angular-architecture-course)
+
+![RxJs and Reactive Patterns Angular Architecture Course](https://s3-us-west-1.amazonaws.com/angular-academy/blog/images/rxjs-reactive-patterns-small.png)
 
 
 # Angular 2 and Firebase - Build a Web Application Course
 
 If you are looking for the Angular 2 and Firebase - Build a Web Application Course code, the repo with the full code can be found here:
-
 
 [Angular 2 and Firebase - Build a Web Application](https://angular-university.io/course/build-an-application-with-angular2)
 
@@ -57,6 +65,15 @@ We can install the master branch using the following commands:
     git clone https://github.com/angular-university/ngrx-course.git
     cd ngrx-course
     npm install
+    
+If you prefer the Yarn package manager, instead of npm install you can also run:
+
+    yarn
+
+Although npm install would also work, its recommended to use Yarn to install the course dependencies. Yarn has the big advantage that if you use it you will be
+installing the exact same dependencies than I installed in my machine, so you wont run into issues caused by semantic versioning updates.
+
+This should take a couple of minutes. If there are issues, please post the complete error message in the Questions section of the course.    
     
 # To Run the Chat Application Backend Server 
 
