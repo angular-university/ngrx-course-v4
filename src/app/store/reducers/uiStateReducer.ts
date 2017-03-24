@@ -21,7 +21,7 @@ export function uiState(state: UiState = INITIAL_UI_STATE, action: Action) : UiS
 
         case SELECT_USER_ACTION:
 
-            return handleSelectUserAction(state, action);
+            return handleSelectUserAction(state, <any>action);
 
 
         default:

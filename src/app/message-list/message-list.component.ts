@@ -28,7 +28,7 @@ export class MessageListComponent implements OnChanges {
 
             const newMessages = changes['messages'].currentValue;
 
-            if (newMessages.length > previousMessages.length) {
+            if (previousMessages && newMessages.length > previousMessages.length) {
                 setTimeout(() => {
                     this.scrollLastMessageIntoView();
                 });
