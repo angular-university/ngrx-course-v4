@@ -17,6 +17,7 @@ export class MessageListComponent  {
     }
 
     ngOnInit() {
+
     }
 
 }

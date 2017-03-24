@@ -10,7 +10,7 @@ export function storeData(state: StoreData, action:Action) : StoreData {
 
         case USER_THREADS_LOADED_ACTION:
 
-            return handleLoadUserThreadsAction(state,action);
+            return handleLoadUserThreadsAction(state,<any>action);
 
         default:
             return state;
