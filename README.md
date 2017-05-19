@@ -15,31 +15,6 @@ If you are looking for the RxJs and Reactive Patterns Angular Architecture Cours
 
 ![RxJs and Reactive Patterns Angular Architecture Course](https://s3-us-west-1.amazonaws.com/angular-academy/blog/images/rxjs-reactive-patterns-small.png)
 
-
-# Angular 2 and Firebase - Build a Web Application Course
-
-If you are looking for the Angular 2 and Firebase - Build a Web Application Course code, the repo with the full code can be found here:
-
-[Angular 2 and Firebase - Build a Web Application](https://angular-university.io/course/build-an-application-with-angular2)
-
-[Github repo for this course](https://github.com/angular-university/angular-firebase-app)
-
-![Angular firebase course](https://angular-academy.s3.amazonaws.com/thumbnails/angular_app-firebase-small.jpg)
-
-
-# Complete Typescript 2 Course - Build A REST API
-
-If you are looking for the Complete Typescript 2 Course - Build a REST API, the repo with the full code can be found here:
-
-[https://angular-university.io/course/typescript-2-tutorial](https://github.com/angular-university/complete-typescript-course)
-
-[Github repo for this course](https://github.com/angular-university/complete-typescript-course)
-
-![Complete Typescript Course](https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png)
-
-
-
-
 # Installation pre-requisites
 
 For running this project we need and npm installed on our machine. These are some tutorials to install node in different operating systems:
@@ -50,6 +25,9 @@ For running this project we need and npm installed on our machine. These are som
 - [Install Node and NPM on Linux](https://www.youtube.com/watch?v=yUdHk-Dk_BY)
 - [Install Node and NPM on Mac](https://www.youtube.com/watch?v=Imj8PgG3bZU)
 
+# Data For the In-Memory Database
+
+The data used in the backend can be found on this file [db-data.ts](https://raw.githubusercontent.com/angular-university/ngrx-course/master/src/server/db-data.ts).
 
 # Installing the Angular CLI
 
@@ -104,6 +82,32 @@ At certain points along the course, you will be asked to checkout other remote b
   
       git checkout -b start-with-ngrx-store-now origin/start-with-ngrx-store-now
 
+
+
+
+
+
+
+# Angular 2 and Firebase - Build a Web Application Course
+
+If you are looking for the Angular 2 and Firebase - Build a Web Application Course code, the repo with the full code can be found here:
+
+[Angular 2 and Firebase - Build a Web Application](https://angular-university.io/course/build-an-application-with-angular2)
+
+[Github repo for this course](https://github.com/angular-university/angular-firebase-app)
+
+![Angular firebase course](https://angular-academy.s3.amazonaws.com/thumbnails/angular_app-firebase-small.jpg)
+
+
+# Complete Typescript 2 Course - Build A REST API
+
+If you are looking for the Complete Typescript 2 Course - Build a REST API, the repo with the full code can be found here:
+
+[https://angular-university.io/course/typescript-2-tutorial](https://github.com/angular-university/complete-typescript-course)
+
+[Github repo for this course](https://github.com/angular-university/complete-typescript-course)
+
+![Complete Typescript Course](https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png)
 
 
 
