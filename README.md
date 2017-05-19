@@ -7,14 +7,6 @@ This course repository is updated to Angular 4, there is a Yarn lock file availa
 
 ![Angular Ngrx Course](https://angular-academy.s3.amazonaws.com/thumbnails/ngrx-angular.png)
 
-# RxJs and Reactive Patterns Angular Architecture Course
-
-If you are looking for the RxJs and Reactive Patterns Angular Architecture Course code, the repo with the full code can be found here:
-
-[RxJs and Reactive Patterns Angular Architecture Course](https://angular-university.io/course/reactive-angular-architecture-course)
-
-![RxJs and Reactive Patterns Angular Architecture Course](https://s3-us-west-1.amazonaws.com/angular-academy/blog/images/rxjs-reactive-patterns-small.png)
-
 # Installation pre-requisites
 
 For running this project we need and npm installed on our machine. These are some tutorials to install node in different operating systems:
@@ -82,10 +74,13 @@ At certain points along the course, you will be asked to checkout other remote b
   
       git checkout -b start-with-ngrx-store-now origin/start-with-ngrx-store-now
 
+# RxJs and Reactive Patterns Angular Architecture Course
 
+If you are looking for the RxJs and Reactive Patterns Angular Architecture Course code, the repo with the full code can be found here:
 
+[RxJs and Reactive Patterns Angular Architecture Course](https://angular-university.io/course/reactive-angular-architecture-course)
 
-
+![RxJs and Reactive Patterns Angular Architecture Course](https://s3-us-west-1.amazonaws.com/angular-academy/blog/images/rxjs-reactive-patterns-small.png)
 
 
 # Angular 2 and Firebase - Build a Web Application Course
