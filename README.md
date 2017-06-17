@@ -34,7 +34,6 @@ We can install the master branch using the following commands:
 
     git clone https://github.com/angular-university/ngrx-course.git
     cd ngrx-course
-    npm install
     
 If you prefer the Yarn package manager, instead of npm install you can also run:
 
@@ -43,7 +42,11 @@ If you prefer the Yarn package manager, instead of npm install you can also run:
 Although npm install would also work, its recommended to use Yarn to install the course dependencies. Yarn has the big advantage that if you use it you will be
 installing the exact same dependencies than I installed in my machine, so you wont run into issues caused by semantic versioning updates.
 
-This should take a couple of minutes. If there are issues, please post the complete error message in the Questions section of the course.    
+This should take a couple of minutes. If there are issues, please post the complete error message in the Questions section of the course.  
+
+If you start the repository at this stage, you might run into this temporary [CLI issue](https://github.com/angular-university/ngrx-course). To solve it, simply edit any Typescript file, and hit space and the problem will be fixed.
+
+But in general its better not to take the course using the master repository, but instead to switch to the several branches as presented in the lessons.
     
 # To Run the Chat Application Backend Server 
 
