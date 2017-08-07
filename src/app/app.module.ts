@@ -27,7 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { RouterStoreModule} from "@ngrx/router-store";
 import { ChatMessageComponent } from './chat-message/chat-message.component';
-import {reducer} from "./reducer";
+import { storeReducer} from "./reducer";
 
 
 
@@ -50,7 +50,7 @@ import {reducer} from "./reducer";
     FormsModule,
     HttpModule,
       RouterModule.forRoot(routes, { useHash: true }),
-      StoreModule.provideStore(reducer, INITIAL_APPLICATION_STATE),
+      StoreModule.provideStore(storeReducer, INITIAL_APPLICATION_STATE),
       RouterStoreModule.connectRouter(),
       EffectsModule.run(LoadThreadsEffectService),
       EffectsModule.run(WriteNewMessageEffectService),
