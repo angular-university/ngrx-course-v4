@@ -3,7 +3,7 @@
 
 This repository contains the full application of the [Angular Ngrx Reactive Extensions Architecture Course](https://angular-university.io/course/angular2-ngrx).
 
-This course repository is updated to Angular 4, there is a Yarn lock file available.
+This course repository is updated to Angular v5, there is a Yarn lock file available.
 
 ![Angular Ngrx Course](https://angular-academy.s3.amazonaws.com/thumbnails/ngrx-angular.png)
 
