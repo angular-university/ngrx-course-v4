@@ -1,7 +1,7 @@
 
 
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
+import {Observable} from "rxjs/Observable";
 import {ThreadsService} from "../../services/threads.service";
 import {Effect} from "@ngrx/effects";
 import {NewMessagesReceivedAction} from "../actions";

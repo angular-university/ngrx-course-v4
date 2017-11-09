@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import {ThreadsService} from "../../services/threads.service";
 import {Actions, Effect} from "@ngrx/effects";
-import {LOAD_USER_THREADS_ACTION, UserThreadsLoadedAction, SELECT_USER_ACTION, LoadUserThreadsAction} from "../actions";
-import {Observable} from "rxjs";
+import {
+    LOAD_USER_THREADS_ACTION, UserThreadsLoadedAction, SELECT_USER_ACTION, LoadUserThreadsAction,
+    SelectUserAction
+} from "../actions";
+import {Observable} from "rxjs/Observable";
 import {Action} from "@ngrx/store";
 
 
@@ -16,7 +19,7 @@ export class LoadThreadsEffectService {
   }
 
   @Effect() userThreads$: Observable<Action> = this.actions$
-      .ofType(LOAD_USER_THREADS_ACTION)
+      .ofType<LoadUserThreadsAction>(LOAD_USER_THREADS_ACTION)
       .debug("action received")
       .switchMap(action => this.threadsService.loadUserThreads(action.payload))
       .debug("data received via the HTTP request")
@@ -24,7 +27,7 @@ export class LoadThreadsEffectService {
 
 
   @Effect() newUserSelected$ : Observable<Action> = this.actions$
-      .ofType(SELECT_USER_ACTION)
+      .ofType<SelectUserAction>(SELECT_USER_ACTION)
       .debug("New user selected")
       .map(action =>  new LoadUserThreadsAction(action.payload));
 

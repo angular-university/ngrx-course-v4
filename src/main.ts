@@ -5,13 +5,17 @@ import { enableProdMode } from '@angular/core';
 import { environment } from './environments/environment';
 import { AppModule } from './app/';
 
+import {Observable} from "rxjs/Observable";
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/filter';
-import {Observable} from "rxjs";
+import 'rxjs/add/operator/do';
 
+import "rxjs/add/observable/interval";
+import "rxjs/add/observable/of";
 
 const debuggerOn = true;
 

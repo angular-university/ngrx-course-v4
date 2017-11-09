@@ -1,7 +1,7 @@
 import {Component, ContentChild, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 import {ApplicationState} from "../store/application-state";
 import {Store} from "@ngrx/store";
-import {Observable} from "rxjs";
+import {Observable} from "rxjs/Observable";
 import {MessageVM} from "./message.vm";
 import {messageParticipantNamesSelector} from "./messageParticipantNamesSelector";
 import {messagesSelector} from "./messagesSelector";
