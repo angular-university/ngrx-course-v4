@@ -5,12 +5,20 @@ import { enableProdMode } from '@angular/core';
 import { environment } from './environments/environment';
 import { AppModule } from './app/';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/skip';
-import 'rxjs/add/operator/switchMap';
-import {Observable} from "rxjs";
+
+
+import {Observable} from "rxjs/Observable";
+
 
 const debuggerOn = true;
+
+import 'rxjs/add/operator/do';
+
+declare module 'rxjs/Observable' {
+    interface Observable<T> {
+        debug: (...any) => Observable<T>
+    }
+}
 
 Observable.prototype.debug = function(message:string) {
     return this.do(
@@ -33,13 +41,15 @@ Observable.prototype.debug = function(message:string) {
 };
 
 
-declare module 'rxjs/Observable' {
-    interface Observable<T> {
-        debug: (...any) => Observable<T>
-    }
-}
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/skip';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/catch';
 
-
+import "rxjs/add/observable/interval";
+import "rxjs/add/observable/of";
 
 
 if (environment.production) {
