@@ -16,7 +16,7 @@ export const NEW_MESSAGES_RECEIVED_ACTION = 'NEW_MESSAGES_RECEIVED_ACTION';
 export const ERROR_OCCURRED_ACTION = 'ERROR_OCCURRED_ACTION';
 
 
-export class LoadUserThreadsAction implements  Action {
+export class LoadUserThreadsAction implements Action {
 
     readonly type = LOAD_USER_THREADS_ACTION;
 

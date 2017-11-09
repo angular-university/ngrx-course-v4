@@ -9,7 +9,7 @@ import {
 } from "../actions";
 
 
-export function uiState(state: UiState = INITIAL_UI_STATE, action: Action) : UiState {
+export function uiState(state: UiState = INITIAL_UI_STATE, action: any) : UiState {
 
     switch (action.type)  {
 
