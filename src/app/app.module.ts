@@ -26,11 +26,7 @@ const reducers = {
     storeData
 };
 
-const combinedReducer = combineReducers(reducers);
 
-export function storeReducer(state: ApplicationState, action: Action) {
-    return combinedReducer(state, action);
-}
 
 
 @NgModule({
@@ -46,10 +42,9 @@ export function storeReducer(state: ApplicationState, action: Action) {
     BrowserModule,
     FormsModule,
     HttpModule,
-      StoreModule.provideStore(storeReducer, INITIAL_APPLICATION_STATE),
-      EffectsModule.run(LoadThreadsEffectService),
-      EffectsModule.run(WriteNewMessageEffectService),
-      StoreDevtoolsModule.instrumentOnlyWithExtension()
+      StoreModule.forRoot(reducers, {initialState: INITIAL_APPLICATION_STATE}),
+      EffectsModule.forRoot([LoadThreadsEffectService, WriteNewMessageEffectService]),
+      StoreDevtoolsModule.instrument({maxAge:25})
   ],
   providers: [ThreadsService],
   bootstrap: [AppComponent]

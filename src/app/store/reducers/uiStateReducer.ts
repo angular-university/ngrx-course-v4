@@ -6,7 +6,7 @@ import {Action} from "@ngrx/store";
 import {THREAD_SELECTED_ACTION, SELECT_USER_ACTION, SelectUserAction} from "../actions";
 
 
-export function uiState(state: UiState = INITIAL_UI_STATE, action: Action) : UiState {
+export function uiState(state: UiState = INITIAL_UI_STATE, action: any) : UiState {
 
     switch (action.type)  {
 
