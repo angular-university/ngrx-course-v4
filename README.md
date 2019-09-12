@@ -1,4 +1,6 @@
 
+This course is now archived, and has been replaced by [NgRx (with Ngrx Data) - The Complete Guide](https://github.com/angular-university/ngrx-course)
+
 # Repository contents
 
 This repository contains the full application of the [Angular Ngrx Reactive Extensions Architecture Course](https://angular-university.io/course/angular2-ngrx).
