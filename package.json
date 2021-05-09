@@ -32,7 +32,7 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "firebase": "^3.7.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "ts-helpers": "^1.1.1",
     "@ngrx/effects": "4.1.0",
     "@ngrx/router-store": "4.1.0",
